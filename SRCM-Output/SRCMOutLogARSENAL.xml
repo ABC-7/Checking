@@ -1,0 +1,5075 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+	<SRCM_Metrics>
+		Total Requirements = 36,Unique-ActionSources = 36
+		Total Triggers = 1, 		Unique-SystemTriggers = 1
+		Total Conditions = 40, 	Unique-SystemConditions = 26
+		Total Actions = 29,		Unique-SystemActions = 24
+		Total Entities = 84, 	Unique-SystemEntities = 24
+	</SRCM_Metrics>
+	<SystemActionSource>
+		<ActionSource>
+			Key = AS2
+			Req-Text = if the monitor mode equals RCMVAL_failed , the regulator mode shall never be set to RCMVAL_normal .
+			Triggers-Relation = null
+			Conditions-Relation = C2
+			Actions-Relation = A2
+			<SysCondition>
+				Key = C2
+				<Entity>
+					Key = E3
+					Text = the monitor mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A2
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_normal
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS3
+			Req-Text = if the regulator interface failure is set to RCMVAL_true or the regulator internal failure is set to RCMVAL_true or the status attribute of the current temperature is not set to RCMVAL_valid , the regulator status shall be set to RCMVAL_false.
+			Triggers-Relation = null
+			Conditions-Relation = ( C3 OR C4 OR C5 )
+			Actions-Relation = A3
+			<SysCondition>
+				Key = C3
+				<Entity>
+					Key = E4
+					Text = the regulator interface failure
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C4
+				<Entity>
+					Key = E5
+					Text = the regulator internal failure
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C5
+				<Entity>
+					Key = E6
+					Text = the status attribute of the current temperature
+				</Entity>
+				<Value>
+					Text = RCMVAL_valid
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A3
+				<Entity>
+					Key = E7
+					Text = the regulator status
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS4
+			Req-Text = if the monitor status equals RCMVAL_false , the monitor init timeout shall be set to RCMVAL_true .
+			Triggers-Relation = null
+			Conditions-Relation = C6
+			Actions-Relation = A4
+			<SysCondition>
+				Key = C6
+				<Entity>
+					Key = E8
+					Text = the monitor status
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A4
+				<Entity>
+					Key = E9
+					Text = the monitor init timeout
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS5
+			Req-Text = if the monitor mode equals RCMVAL_normal, and the temp attribute of the current temperature is less than the temp attribute of the lower temperature, or greater than the temp attribute of the upper temperature, the alarm control shall be set to RCMVAL_control_on.
+			Triggers-Relation = null
+			Conditions-Relation = ( C7 AND ( C8 OR C9 ) )
+			Actions-Relation = A5
+			<SysCondition>
+				Key = C7
+				<Entity>
+					Key = E3
+					Text = the monitor mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_normal
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C8
+				<Entity>
+					Key = E10
+					Text = the temp attribute of the current temperature
+				</Entity>
+				<Value>
+					Text = the#$@$#temp#$@$#attribute of the#$@$#lower#$@$#temperature than the#$@$#temp#$@$#attribute of the#$@$#upper#$@$#temperature
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be less than"
+				Operator is "<"
+			</SysCondition>
+			<SysCondition>
+				Key = C9
+				<Entity>
+					Key = E11
+					Text = the temp attribute of the current temperature greater
+				</Entity>
+				<Value>
+					Text = RCMVAL_True
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A5
+				<Entity>
+					Key = E12
+					Text = the alarm control
+				</Entity>
+				<Value>
+					Text = RCMVAL_control_on
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS6
+			Req-Text = the monitor mode shall be initialized to RCMVAL_init .
+			Triggers-Relation = null
+			Conditions-Relation = null
+			Actions-Relation = A6
+			<SysAction>
+				Key = A6
+				<Entity>
+					Key = E3
+					Text = the monitor mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "initialize"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS19
+			Req-Text = if the monitor mode equals RCMVAL_init , the alarm control shall be set to RCMVAL_control_off .
+			Triggers-Relation = null
+			Conditions-Relation = C10
+			Actions-Relation = A16
+			<SysCondition>
+				Key = C10
+				<Entity>
+					Key = E3
+					Text = the monitor mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A16
+				<Entity>
+					Key = E12
+					Text = the alarm control
+				</Entity>
+				<Value>
+					Text = RCMVAL_control_off
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS7
+			Req-Text = if the monitor mode is set to RCMVAL_init and the monitor init timeout is set to RCMVAL_true, the monitor mode shall be set to RCMVAL_failed .
+			Triggers-Relation = null
+			Conditions-Relation = ( C10 AND C11 )
+			Actions-Relation = A7
+			<SysCondition>
+				Key = C10
+				<Entity>
+					Key = E3
+					Text = the monitor mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C11
+				<Entity>
+					Key = E9
+					Text = the monitor init timeout
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A7
+				<Entity>
+					Key = E3
+					Text = the monitor mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS8
+			Req-Text = if the status attribute of the lower temperature or the upper temperature equals RCMVAL_invalid, the monitor interface failure shall be set to RCMVAL_true.
+			Triggers-Relation = null
+			Conditions-Relation = null
+			Actions-Relation = null
+		</ActionSource>
+		<ActionSource>
+			Key = AS17
+			Req-Text = if the regulator mode equals RCMVAL_failed , the heat control shall be set to RCMVAL_control_off .
+			Triggers-Relation = null
+			Conditions-Relation = C18
+			Actions-Relation = A14
+			<SysCondition>
+				Key = C18
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A14
+				<Entity>
+					Key = E22
+					Text = the heat control
+				</Entity>
+				<Value>
+					Text = RCMVAL_control_off
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS9
+			Req-Text = if the regulator status equals RCMVAL_true , the regulator init timeout shall be set to RCMVAL_false .
+			Triggers-Relation = null
+			Conditions-Relation = C12
+			Actions-Relation = A8
+			<SysCondition>
+				Key = C12
+				<Entity>
+					Key = E7
+					Text = the regulator status
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A8
+				<Entity>
+					Key = E15
+					Text = the regulator init timeout
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS18
+			Req-Text = if the monitor interface mode equals RCMVAL_normal , the output monitor status shall be set to RCMVAL_status_on .
+			Triggers-Relation = null
+			Conditions-Relation = C19
+			Actions-Relation = A15
+			<SysCondition>
+				Key = C19
+				<Entity>
+					Key = E17
+					Text = the monitor interface mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_normal
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A15
+				<Entity>
+					Key = E23
+					Text = the output monitor status
+				</Entity>
+				<Value>
+					Text = RCMVAL_status_on
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS15
+			Req-Text = if the regulator mode is set to RCMVAL_normal and the regulator status is set to RCMVAL_false, the regulator mode shall be set to RCMVAL_failed .
+			Triggers-Relation = null
+			Conditions-Relation = ( C16 AND C17 )
+			Actions-Relation = A12
+			<SysCondition>
+				Key = C16
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_normal
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C17
+				<Entity>
+					Key = E7
+					Text = the regulator status
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A12
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS16
+			Req-Text = if the regulator mode equals RCMVAL_failed, the output regulator status shall be set to RCMVAL_failed .
+			Triggers-Relation = null
+			Conditions-Relation = C18
+			Actions-Relation = A13
+			<SysCondition>
+				Key = C18
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A13
+				<Entity>
+					Key = E2
+					Text = the output regulator status
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS13
+			Req-Text = if the monitor interface failure is set to RCMVAL_false and the monitor internal failure is set to RCMVAL_false and the status attribute of the current temperature is set to RCMVAL_valid, the monitor status shall be set to RCMVAL_true.
+			Triggers-Relation = null
+			Conditions-Relation = ( C14 AND C15 AND C5 )
+			Actions-Relation = A11
+			<SysCondition>
+				Key = C14
+				<Entity>
+					Key = E18
+					Text = the monitor interface failure
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C15
+				<Entity>
+					Key = E19
+					Text = the monitor internal failure
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C5
+				<Entity>
+					Key = E6
+					Text = the status attribute of the current temperature
+				</Entity>
+				<Value>
+					Text = RCMVAL_valid
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A11
+				<Entity>
+					Key = E8
+					Text = the monitor status
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS35
+			Req-Text = if the monitor interface mode equals RCMVAL_init , the output monitor status shall be set to RCMVAL_init .
+			Triggers-Relation = null
+			Conditions-Relation = C25
+			Actions-Relation = A23
+			<SysCondition>
+				Key = C25
+				<Entity>
+					Key = E17
+					Text = the monitor interface mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A23
+				<Entity>
+					Key = E23
+					Text = the output monitor status
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS14
+			Req-Text = if the status attribute of the lower desired temperature or the upper desired temperature equals RCMVAL_invalid, the regulator interface failure shall be set to RCMVAL_true.
+			Triggers-Relation = null
+			Conditions-Relation = ( null OR null )
+			Actions-Relation = null
+		</ActionSource>
+		<ActionSource>
+			Key = AS36
+			Req-Text = if the monitor interface mode equals RCMVAL_failed , the output monitor status shall be set to RCMVAL_failed .
+			Triggers-Relation = null
+			Conditions-Relation = C26
+			Actions-Relation = A24
+			<SysCondition>
+				Key = C26
+				<Entity>
+					Key = E17
+					Text = the monitor interface mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A24
+				<Entity>
+					Key = E23
+					Text = the output monitor status
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS11
+			Req-Text = if the regulator mode equals RCMVAL_normal , and temp attribute of the lower desired temperature exceeds the temp attribute of the current temperature , the heat control shall be set to RCMVAL_control_on .
+			Triggers-Relation = null
+			Conditions-Relation = ( null AND null )
+			Actions-Relation = null
+		</ActionSource>
+		<ActionSource>
+			Key = AS33
+			Req-Text = if the regulator mode is set to RCMVAL_init and the regulator init timeout is set to RCMVAL_true, the regulator mode shall be set to RCMVAL_failed .
+			Triggers-Relation = null
+			Conditions-Relation = ( C1 AND C24 )
+			Actions-Relation = A12
+			<SysCondition>
+				Key = C1
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C24
+				<Entity>
+					Key = E15
+					Text = the regulator init timeout
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A12
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS12
+			Req-Text = the monitor interface mode shall be set to the monitor mode .
+			Triggers-Relation = null
+			Conditions-Relation = null
+			Actions-Relation = A10
+			<SysAction>
+				Key = A10
+				<Entity>
+					Key = E17
+					Text = the monitor interface mode
+				</Entity>
+				<Value>
+					Text = the#$@$#monitor#$@$#mode
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS34
+			Req-Text = if the regulator mode equals RCMVAL_init, the heat control shall be set to RCMVAL_control_off.
+			Triggers-Relation = null
+			Conditions-Relation = C1
+			Actions-Relation = A14
+			<SysCondition>
+				Key = C1
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A14
+				<Entity>
+					Key = E22
+					Text = the heat control
+				</Entity>
+				<Value>
+					Text = RCMVAL_control_off
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS31
+			Req-Text = if the monitor interface failure is set to RCMVAL_true or the monitor internal failure is set to RCMVAL_true or the status attribute of the current temperature is not set to RCMVAL_valid , the monitor status shall be set to RCMVAL_false.
+			Triggers-Relation = null
+			Conditions-Relation = ( C22 OR C23 OR C5 )
+			Actions-Relation = A22
+			<SysCondition>
+				Key = C22
+				<Entity>
+					Key = E18
+					Text = the monitor interface failure
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C23
+				<Entity>
+					Key = E19
+					Text = the monitor internal failure
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C5
+				<Entity>
+					Key = E6
+					Text = the status attribute of the current temperature
+				</Entity>
+				<Value>
+					Text = RCMVAL_valid
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A22
+				<Entity>
+					Key = E8
+					Text = the monitor status
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS10
+			Req-Text = if the monitor mode is set to RCMVAL_init and the monitor status is set to RCMVAL_true, the monitor mode shall be set to RCMVAL_normal .
+			Triggers-Relation = null
+			Conditions-Relation = ( C10 AND C13 )
+			Actions-Relation = A9
+			<SysCondition>
+				Key = C10
+				<Entity>
+					Key = E3
+					Text = the monitor mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C13
+				<Entity>
+					Key = E8
+					Text = the monitor status
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A9
+				<Entity>
+					Key = E3
+					Text = the monitor mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_normal
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS32
+			Req-Text = if the status attribute of the lower desired temperature and the upper desired temperature equals RCMVAL_valid, the regulator interface failure shall be set to RCMVAL_false.
+			Triggers-Relation = null
+			Conditions-Relation = ( null AND null )
+			Actions-Relation = null
+		</ActionSource>
+		<ActionSource>
+			Key = AS30
+			Req-Text = the regulator mode shall be initialized to RCMVAL_init .
+			Triggers-Relation = null
+			Conditions-Relation = null
+			Actions-Relation = A18
+			<SysAction>
+				Key = A18
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS28
+			Req-Text = if the monitor mode is set to RCMVAL_normal and the monitor status is set to RCMVAL_false, the monitor mode shall be set to RCMVAL_failed .
+			Triggers-Relation = null
+			Conditions-Relation = ( C7 AND C6 )
+			Actions-Relation = A7
+			<SysCondition>
+				Key = C6
+				<Entity>
+					Key = E8
+					Text = the monitor status
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C7
+				<Entity>
+					Key = E3
+					Text = the monitor mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_normal
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A7
+				<Entity>
+					Key = E3
+					Text = the monitor mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS29
+			Req-Text = if the regulator mode equals RCMVAL_normal , and the temp attribute of the current temperature exceeds the temp attribute of the upper desired temperature , the heat control shall be set to RCMVAL_control_off .
+			Triggers-Relation = null
+			Conditions-Relation = ( null AND null )
+			Actions-Relation = null
+		</ActionSource>
+		<ActionSource>
+			Key = AS26
+			Req-Text = if the status attribute of the lower temperature and the upper temperature equals RCMVAL_valid, the monitor interface failure shall be set to RCMVAL_false.
+			Triggers-Relation = null
+			Conditions-Relation = null
+			Actions-Relation = null
+		</ActionSource>
+		<ActionSource>
+			Key = AS27
+			Req-Text = if the regulator status equals RCMVAL_false , the regulator init timeout shall be set to RCMVAL_true .
+			Triggers-Relation = null
+			Conditions-Relation = C17
+			Actions-Relation = A21
+			<SysCondition>
+				Key = C17
+				<Entity>
+					Key = E7
+					Text = the regulator status
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A21
+				<Entity>
+					Key = E15
+					Text = the regulator init timeout
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS24
+			Req-Text = if the regulator interface failure is set to RCMVAL_false, and the regulator internal failure is set to RCMVAL_false, and the status attribute of the current temperature is set to RCMVAL_valid, the regulator status shall be set to RCMVAL_true.
+			Triggers-Relation = null
+			Conditions-Relation = ( C20 AND ( C21 AND C5 ) )
+			Actions-Relation = A19
+			<SysCondition>
+				Key = C20
+				<Entity>
+					Key = E4
+					Text = the regulator interface failure
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C21
+				<Entity>
+					Key = E5
+					Text = the regulator internal failure
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C5
+				<Entity>
+					Key = E6
+					Text = the status attribute of the current temperature
+				</Entity>
+				<Value>
+					Text = RCMVAL_valid
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A19
+				<Entity>
+					Key = E7
+					Text = the regulator status
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS25
+			Req-Text = if the monitor status equals RCMVAL_true , the monitor init timeout shall be set to RCMVAL_false .
+			Triggers-Relation = null
+			Conditions-Relation = C13
+			Actions-Relation = A20
+			<SysCondition>
+				Key = C13
+				<Entity>
+					Key = E8
+					Text = the monitor status
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A20
+				<Entity>
+					Key = E9
+					Text = the monitor init timeout
+				</Entity>
+				<Value>
+					Text = RCMVAL_false
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS22
+			Req-Text = if the regulator mode equals RCMVAL_init and the regulator status equals RCMVAL_true, the regulator mode shall be set to RCMVAL_normal.
+			Triggers-Relation = null
+			Conditions-Relation = null
+			Actions-Relation = null
+		</ActionSource>
+		<ActionSource>
+			Key = AS23
+			Req-Text = if the regulator mode equals RCMVAL_failed , the regulator mode shall never be set to RCMVAL_normal .
+			Triggers-Relation = null
+			Conditions-Relation = C18
+			Actions-Relation = A2
+			<SysCondition>
+				Key = C18
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_failed
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A2
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_normal
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS20
+			Req-Text = if the regulator mode equals RCMVAL_normal , the output regulator status shall be set to RCMVAL_status_on .
+			Triggers-Relation = null
+			Conditions-Relation = C16
+			Actions-Relation = A17
+			<SysCondition>
+				Key = C16
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_normal
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A17
+				<Entity>
+					Key = E2
+					Text = the output regulator status
+				</Entity>
+				<Value>
+					Text = RCMVAL_status_on
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS21
+			Req-Text = when the reset equals RCMVAL_true , the regulator mode shall be set to RCMVAL_init .
+			Triggers-Relation = T1
+			Conditions-Relation = null
+			Actions-Relation = A18
+			<SysTrigger>
+				Key = T1
+				<Entity>
+					Key = E24
+					Text = the reset
+				</Entity>
+				<Value>
+					Text = RCMVAL_true
+					Type = Atomic
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysTrigger>
+			<SysAction>
+				Key = A18
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS1
+			Req-Text = if the regulator mode equals RCMVAL_init , the output regulator status shall be set to RCMVAL_init .
+			Triggers-Relation = null
+			Conditions-Relation = C1
+			Actions-Relation = A1
+			<SysCondition>
+				Key = C1
+				<Entity>
+					Key = E1
+					Text = the regulator mode
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "equal"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A1
+				<Entity>
+					Key = E2
+					Text = the output regulator status
+				</Entity>
+				<Value>
+					Text = RCMVAL_init
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "set"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+	</SystemActionSource>
+	<SystemTriggers>
+		<SysTrigger>
+			<Entity>
+				Key = E24
+				Text = the reset
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS21]
+		</SysTrigger>
+	</SystemTriggers>
+	<SystemConditions>
+		<SysCondition>
+			Key = C20
+			<Entity>
+				Key = E4
+				Text = the regulator interface failure
+			</Entity>
+			<Value>
+				Text = RCMVAL_false
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS24]
+		</SysCondition>
+		<SysCondition>
+			Key = C22
+			<Entity>
+				Key = E18
+				Text = the monitor interface failure
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS31]
+		</SysCondition>
+		<SysCondition>
+			Key = C21
+			<Entity>
+				Key = E5
+				Text = the regulator internal failure
+			</Entity>
+			<Value>
+				Text = RCMVAL_false
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS24]
+		</SysCondition>
+		<SysCondition>
+			Key = C24
+			<Entity>
+				Key = E15
+				Text = the regulator init timeout
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS33]
+		</SysCondition>
+		<SysCondition>
+			Key = C23
+			<Entity>
+				Key = E19
+				Text = the monitor internal failure
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS31]
+		</SysCondition>
+		<SysCondition>
+			Key = C26
+			<Entity>
+				Key = E17
+				Text = the monitor interface mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_failed
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS36]
+		</SysCondition>
+		<SysCondition>
+			Key = C25
+			<Entity>
+				Key = E17
+				Text = the monitor interface mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_init
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS35]
+		</SysCondition>
+		<SysCondition>
+			Key = C1
+			<Entity>
+				Key = E1
+				Text = the regulator mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_init
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS1, AS33, AS34]
+		</SysCondition>
+		<SysCondition>
+			Key = C2
+			<Entity>
+				Key = E3
+				Text = the monitor mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_failed
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS2]
+		</SysCondition>
+		<SysCondition>
+			Key = C3
+			<Entity>
+				Key = E4
+				Text = the regulator interface failure
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS3]
+		</SysCondition>
+		<SysCondition>
+			Key = C4
+			<Entity>
+				Key = E5
+				Text = the regulator internal failure
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS3]
+		</SysCondition>
+		<SysCondition>
+			Key = C5
+			<Entity>
+				Key = E6
+				Text = the status attribute of the current temperature
+			</Entity>
+			<Value>
+				Text = RCMVAL_valid
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS3, AS13, AS24, AS31]
+		</SysCondition>
+		<SysCondition>
+			Key = C6
+			<Entity>
+				Key = E8
+				Text = the monitor status
+			</Entity>
+			<Value>
+				Text = RCMVAL_false
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS4, AS28]
+		</SysCondition>
+		<SysCondition>
+			Key = C7
+			<Entity>
+				Key = E3
+				Text = the monitor mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_normal
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS5, AS28]
+		</SysCondition>
+		<SysCondition>
+			Key = C8
+			<Entity>
+				Key = E10
+				Text = the temp attribute of the current temperature
+			</Entity>
+			<Value>
+				Text = the#$@$#temp#$@$#attribute of the#$@$#lower#$@$#temperature than the#$@$#temp#$@$#attribute of the#$@$#upper#$@$#temperature
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be less than"
+			Operator is "<"
+			Action-Sources = [AS5]
+		</SysCondition>
+		<SysCondition>
+			Key = C9
+			<Entity>
+				Key = E11
+				Text = the temp attribute of the current temperature greater
+			</Entity>
+			<Value>
+				Text = RCMVAL_True
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS5]
+		</SysCondition>
+		<SysCondition>
+			Key = C11
+			<Entity>
+				Key = E9
+				Text = the monitor init timeout
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS7]
+		</SysCondition>
+		<SysCondition>
+			Key = C10
+			<Entity>
+				Key = E3
+				Text = the monitor mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_init
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS7, AS10, AS19]
+		</SysCondition>
+		<SysCondition>
+			Key = C13
+			<Entity>
+				Key = E8
+				Text = the monitor status
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS10, AS25]
+		</SysCondition>
+		<SysCondition>
+			Key = C12
+			<Entity>
+				Key = E7
+				Text = the regulator status
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS9]
+		</SysCondition>
+		<SysCondition>
+			Key = C15
+			<Entity>
+				Key = E19
+				Text = the monitor internal failure
+			</Entity>
+			<Value>
+				Text = RCMVAL_false
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS13]
+		</SysCondition>
+		<SysCondition>
+			Key = C14
+			<Entity>
+				Key = E18
+				Text = the monitor interface failure
+			</Entity>
+			<Value>
+				Text = RCMVAL_false
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS13]
+		</SysCondition>
+		<SysCondition>
+			Key = C17
+			<Entity>
+				Key = E7
+				Text = the regulator status
+			</Entity>
+			<Value>
+				Text = RCMVAL_false
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS15, AS27]
+		</SysCondition>
+		<SysCondition>
+			Key = C16
+			<Entity>
+				Key = E1
+				Text = the regulator mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_normal
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS15, AS20]
+		</SysCondition>
+		<SysCondition>
+			Key = C19
+			<Entity>
+				Key = E17
+				Text = the monitor interface mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_normal
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS18]
+		</SysCondition>
+		<SysCondition>
+			Key = C18
+			<Entity>
+				Key = E1
+				Text = the regulator mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_failed
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "equal"
+			Operator is "="
+			Action-Sources = [AS16, AS17, AS23]
+		</SysCondition>
+	</SystemConditions>
+	<SystemActions>
+		<SysAction>
+			Key = A10
+			<Entity>
+				Key = E17
+				Text = the monitor interface mode
+			</Entity>
+			<Value>
+				Text = the#$@$#monitor#$@$#mode
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS12]
+		</SysAction>
+		<SysAction>
+			Key = A21
+			<Entity>
+				Key = E15
+				Text = the regulator init timeout
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS27]
+		</SysAction>
+		<SysAction>
+			Key = A11
+			<Entity>
+				Key = E8
+				Text = the monitor status
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS13]
+		</SysAction>
+		<SysAction>
+			Key = A22
+			<Entity>
+				Key = E8
+				Text = the monitor status
+			</Entity>
+			<Value>
+				Text = RCMVAL_false
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS31]
+		</SysAction>
+		<SysAction>
+			Key = A12
+			<Entity>
+				Key = E1
+				Text = the regulator mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_failed
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS15, AS33]
+		</SysAction>
+		<SysAction>
+			Key = A23
+			<Entity>
+				Key = E23
+				Text = the output monitor status
+			</Entity>
+			<Value>
+				Text = RCMVAL_init
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS35]
+		</SysAction>
+		<SysAction>
+			Key = A13
+			<Entity>
+				Key = E2
+				Text = the output regulator status
+			</Entity>
+			<Value>
+				Text = RCMVAL_failed
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS16]
+		</SysAction>
+		<SysAction>
+			Key = A24
+			<Entity>
+				Key = E23
+				Text = the output monitor status
+			</Entity>
+			<Value>
+				Text = RCMVAL_failed
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS36]
+		</SysAction>
+		<SysAction>
+			Key = A14
+			<Entity>
+				Key = E22
+				Text = the heat control
+			</Entity>
+			<Value>
+				Text = RCMVAL_control_off
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS17, AS34]
+		</SysAction>
+		<SysAction>
+			Key = A15
+			<Entity>
+				Key = E23
+				Text = the output monitor status
+			</Entity>
+			<Value>
+				Text = RCMVAL_status_on
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS18]
+		</SysAction>
+		<SysAction>
+			Key = A16
+			<Entity>
+				Key = E12
+				Text = the alarm control
+			</Entity>
+			<Value>
+				Text = RCMVAL_control_off
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS19]
+		</SysAction>
+		<SysAction>
+			Key = A17
+			<Entity>
+				Key = E2
+				Text = the output regulator status
+			</Entity>
+			<Value>
+				Text = RCMVAL_status_on
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS20]
+		</SysAction>
+		<SysAction>
+			Key = A18
+			<Entity>
+				Key = E1
+				Text = the regulator mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_init
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS21, AS30]
+		</SysAction>
+		<SysAction>
+			Key = A19
+			<Entity>
+				Key = E7
+				Text = the regulator status
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS24]
+		</SysAction>
+		<SysAction>
+			Key = A1
+			<Entity>
+				Key = E2
+				Text = the output regulator status
+			</Entity>
+			<Value>
+				Text = RCMVAL_init
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS1]
+		</SysAction>
+		<SysAction>
+			Key = A2
+			<Entity>
+				Key = E1
+				Text = the regulator mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_normal
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS2, AS23]
+		</SysAction>
+		<SysAction>
+			Key = A3
+			<Entity>
+				Key = E7
+				Text = the regulator status
+			</Entity>
+			<Value>
+				Text = RCMVAL_false
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS3]
+		</SysAction>
+		<SysAction>
+			Key = A4
+			<Entity>
+				Key = E9
+				Text = the monitor init timeout
+			</Entity>
+			<Value>
+				Text = RCMVAL_true
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS4]
+		</SysAction>
+		<SysAction>
+			Key = A5
+			<Entity>
+				Key = E12
+				Text = the alarm control
+			</Entity>
+			<Value>
+				Text = RCMVAL_control_on
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS5]
+		</SysAction>
+		<SysAction>
+			Key = A6
+			<Entity>
+				Key = E3
+				Text = the monitor mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_init
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "initialize"
+			Operator is "="
+			Action-Sources = [AS6]
+		</SysAction>
+		<SysAction>
+			Key = A7
+			<Entity>
+				Key = E3
+				Text = the monitor mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_failed
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS7, AS28]
+		</SysAction>
+		<SysAction>
+			Key = A8
+			<Entity>
+				Key = E15
+				Text = the regulator init timeout
+			</Entity>
+			<Value>
+				Text = RCMVAL_false
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS9]
+		</SysAction>
+		<SysAction>
+			Key = A9
+			<Entity>
+				Key = E3
+				Text = the monitor mode
+			</Entity>
+			<Value>
+				Text = RCMVAL_normal
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS10]
+		</SysAction>
+		<SysAction>
+			Key = A20
+			<Entity>
+				Key = E9
+				Text = the monitor init timeout
+			</Entity>
+			<Value>
+				Text = RCMVAL_false
+				Type = Atomic
+				SourceEntity = null
+			</Value>
+			Relation is "set"
+			Operator is "="
+			Action-Sources = [AS25]
+		</SysAction>
+	</SystemActions>
+	<SystemEntities>
+		<SysEntity>
+			Key = E20
+			Text = the status attribute of the lower desired temperature
+			<Values>
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E11
+			Text = the temp attribute of the current temperature greater
+			<Values>
+				v[1] = RCMVAL_True
+				v[1].SystemAction = null
+				v[1].SystemCondition = C9
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E22
+			Text = the heat control
+			<Values>
+				v[1] = RCMVAL_control_off
+				v[1].SystemAction = A14
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E10
+			Text = the temp attribute of the current temperature
+			<Values>
+				v[1] = the#$@$#temp#$@$#attribute of the#$@$#lower#$@$#temperature than the#$@$#temp#$@$#attribute of the#$@$#upper#$@$#temperature
+				v[1].SystemAction = null
+				v[1].SystemCondition = C8
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E21
+			Text = the upper desired temperature
+			<Values>
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E13
+			Text = the status
+			<Values>
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E24
+			Text = the reset
+			<Values>
+				v[1] = RCMVAL_true
+				v[1].SystemAction = null
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = T1
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E12
+			Text = the alarm control
+			<Values>
+				v[1] = RCMVAL_control_off
+				v[1].SystemAction = A16
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_control_on
+				v[2].SystemAction = A5
+				v[2].SystemCondition = null
+				v[2].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E23
+			Text = the output monitor status
+			<Values>
+				v[1] = RCMVAL_failed
+				v[1].SystemAction = A24
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_status_on
+				v[2].SystemAction = A15
+				v[2].SystemCondition = null
+				v[2].SystemTrigger = null
+				v[3] = RCMVAL_init
+				v[3].SystemAction = A23
+				v[3].SystemCondition = null
+				v[3].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E15
+			Text = the regulator init timeout
+			<Values>
+				v[1] = RCMVAL_true
+				v[1].SystemAction = A21
+				v[1].SystemCondition = C24
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_false
+				v[2].SystemAction = A8
+				v[2].SystemCondition = null
+				v[2].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E14
+			Text = the upper temperature
+			<Values>
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E17
+			Text = the monitor interface mode
+			<Values>
+				v[1] = the#$@$#monitor#$@$#mode
+				v[1].SystemAction = A10
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_failed
+				v[2].SystemAction = null
+				v[2].SystemCondition = C26
+				v[2].SystemTrigger = null
+				v[3] = RCMVAL_normal
+				v[3].SystemAction = null
+				v[3].SystemCondition = C19
+				v[3].SystemTrigger = null
+				v[4] = RCMVAL_init
+				v[4].SystemAction = null
+				v[4].SystemCondition = C25
+				v[4].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E16
+			Text = temp attribute of the lower desired temperature
+			<Values>
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E1
+			Text = the regulator mode
+			<Values>
+				v[1] = RCMVAL_failed
+				v[1].SystemAction = A12
+				v[1].SystemCondition = C18
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_normal
+				v[2].SystemAction = A2
+				v[2].SystemCondition = C16
+				v[2].SystemTrigger = null
+				v[3] = RCMVAL_init
+				v[3].SystemAction = A18
+				v[3].SystemCondition = C1
+				v[3].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E19
+			Text = the monitor internal failure
+			<Values>
+				v[1] = RCMVAL_true
+				v[1].SystemAction = null
+				v[1].SystemCondition = C23
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_false
+				v[2].SystemAction = null
+				v[2].SystemCondition = C15
+				v[2].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E2
+			Text = the output regulator status
+			<Values>
+				v[1] = RCMVAL_failed
+				v[1].SystemAction = A13
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_status_on
+				v[2].SystemAction = A17
+				v[2].SystemCondition = null
+				v[2].SystemTrigger = null
+				v[3] = RCMVAL_init
+				v[3].SystemAction = A1
+				v[3].SystemCondition = null
+				v[3].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E18
+			Text = the monitor interface failure
+			<Values>
+				v[1] = RCMVAL_true
+				v[1].SystemAction = null
+				v[1].SystemCondition = C22
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_false
+				v[2].SystemAction = null
+				v[2].SystemCondition = C14
+				v[2].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E3
+			Text = the monitor mode
+			<Values>
+				v[1] = RCMVAL_failed
+				v[1].SystemAction = A7
+				v[1].SystemCondition = C2
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_normal
+				v[2].SystemAction = A9
+				v[2].SystemCondition = C7
+				v[2].SystemTrigger = null
+				v[3] = RCMVAL_init
+				v[3].SystemAction = A6
+				v[3].SystemCondition = C10
+				v[3].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E4
+			Text = the regulator interface failure
+			<Values>
+				v[1] = RCMVAL_true
+				v[1].SystemAction = null
+				v[1].SystemCondition = C3
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_false
+				v[2].SystemAction = null
+				v[2].SystemCondition = C20
+				v[2].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E5
+			Text = the regulator internal failure
+			<Values>
+				v[1] = RCMVAL_true
+				v[1].SystemAction = null
+				v[1].SystemCondition = C4
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_false
+				v[2].SystemAction = null
+				v[2].SystemCondition = C21
+				v[2].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E6
+			Text = the status attribute of the current temperature
+			<Values>
+				v[1] = RCMVAL_valid
+				v[1].SystemAction = null
+				v[1].SystemCondition = C5
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E7
+			Text = the regulator status
+			<Values>
+				v[1] = RCMVAL_true
+				v[1].SystemAction = A19
+				v[1].SystemCondition = C12
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_false
+				v[2].SystemAction = A3
+				v[2].SystemCondition = C17
+				v[2].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E8
+			Text = the monitor status
+			<Values>
+				v[1] = RCMVAL_true
+				v[1].SystemAction = A11
+				v[1].SystemCondition = C13
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_false
+				v[2].SystemAction = A22
+				v[2].SystemCondition = C6
+				v[2].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E9
+			Text = the monitor init timeout
+			<Values>
+				v[1] = RCMVAL_true
+				v[1].SystemAction = A4
+				v[1].SystemCondition = C11
+				v[1].SystemTrigger = null
+				v[2] = RCMVAL_false
+				v[2].SystemAction = A20
+				v[2].SystemCondition = null
+				v[2].SystemTrigger = null
+			</Values>
+		</SysEntity>
+	</SystemEntities>
+File Measures: 
+	Number of req in file = 0
+	Number of prim req in file = 36
+<FailedRequirement>
+</FailedRequirement>
+<SucceededRequirement>
+	<Requirement>
+		ID: [TempReqId-1:]
+		text: if the regulator mode equals RCMVAL_init , the output regulator status shall be set to RCMVAL_init .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode equals RCMVAL_init , the output regulator status shall be set to RCMVAL_init .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the regulator mode = RCMVAL_init)] ==> [(the output regulator status = RCMVAL_init)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode equals RCMVAL_init
+					[2]: the output regulator status shall be set to RCMVAL_init
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode equals RCMVAL_init
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the output regulator status shall be set to RCMVAL_init
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the regulator mode equals RCMVAL_init
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_init
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the output regulator status shall be set to RCMVAL_init
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the output regulator status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_init
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-18:]
+		text: if the monitor mode equals RCMVAL_failed , the regulator mode shall never be set to RCMVAL_normal .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor mode equals RCMVAL_failed , the regulator mode shall never be set to RCMVAL_normal .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the monitor mode = RCMVAL_failed)] ==> [(the regulator mode = RCMVAL_normal)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor mode equals RCMVAL_failed
+					[2]: the regulator mode shall never be set to RCMVAL_normal
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor mode equals RCMVAL_failed
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator mode shall never be set to RCMVAL_normal
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the monitor mode equals RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the regulator mode shall never be set to RCMVAL_normal
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_normal
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall never be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-28:]
+		text: if the regulator interface failure is set to RCMVAL_true or the regulator internal failure is set to RCMVAL_true or the status attribute of the current temperature is not set to RCMVAL_valid , the regulator status shall be set to RCMVAL_false.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator interface failure is set to RCMVAL_true or the regulator internal failure is set to RCMVAL_true or the status attribute of the current temperature is not set to RCMVAL_valid , the regulator status shall be set to RCMVAL_false.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) OR (Q) OR (¬R))] ==> [(S)] )
+					MTL-Formula: G( [((the regulator interface failure = RCMVAL_true) OR (the regulator internal failure = RCMVAL_true) OR (¬the status attribute of the current temperature = RCMVAL_valid))] ==> [(the regulator status = RCMVAL_false)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator interface failure is set to RCMVAL_true
+					[2]: if the regulator internal failure is set to RCMVAL_true
+					[3]: if the status attribute of the current temperature is not set to RCMVAL_valid
+					[4]: the regulator status shall be set to RCMVAL_false
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator interface failure is set to RCMVAL_true
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator internal failure is set to RCMVAL_true
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the status attribute of the current temperature is not set to RCMVAL_valid
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator status shall be set to RCMVAL_false
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: OR
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the regulator interface failure is set to RCMVAL_true
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the regulator interface failure
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_true
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the regulator internal failure is set to RCMVAL_true
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the regulator internal failure
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_true
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the status attribute of the current temperature is not set to RCMVAL_valid
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the status attribute of the current temperature
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_valid
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: true
+						</Condition>
+					<Action>
+						Text = the regulator status shall be set to RCMVAL_false
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_false
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-16:]
+		text: if the monitor status equals RCMVAL_false , the monitor init timeout shall be set to RCMVAL_true .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor status equals RCMVAL_false , the monitor init timeout shall be set to RCMVAL_true .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the monitor status = RCMVAL_false)] ==> [(the monitor init timeout = RCMVAL_true)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor status equals RCMVAL_false
+					[2]: the monitor init timeout shall be set to RCMVAL_true
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor status equals RCMVAL_false
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the monitor init timeout shall be set to RCMVAL_true
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the monitor status equals RCMVAL_false
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_false
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the monitor init timeout shall be set to RCMVAL_true
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor init timeout
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_true
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-26:]
+		text: if the monitor mode equals RCMVAL_normal, and the temp attribute of the current temperature is less than the temp attribute of the lower temperature, or greater than the temp attribute of the upper temperature, the alarm control shall be set to RCMVAL_control_on.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor mode equals RCMVAL_normal, and the temp attribute of the current temperature is less than the temp attribute of the lower temperature, or greater than the temp attribute of the upper temperature, the alarm control shall be set to RCMVAL_control_on.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND ((Q) OR (R)))] ==> [(S)] )
+					MTL-Formula: G( [((the monitor mode = RCMVAL_normal) AND ((the temp attribute of the current temperature < the#$@$#temp#$@$#attribute of the#$@$#lower#$@$#temperature than the#$@$#temp#$@$#attribute of the#$@$#upper#$@$#temperature) OR (the temp attribute of the current temperature greater = RCMVAL_True)))] ==> [(the alarm control = RCMVAL_control_on)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor mode equals RCMVAL_normal
+					[2]: if the temp attribute of the current temperature is less than the temp attribute of the lower temperature than the temp attribute of the upper temperature
+					[3]: if the temp attribute of the current temperature greater
+					[4]: the alarm control shall be set to RCMVAL_control_on
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor mode equals RCMVAL_normal
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the temp attribute of the current temperature is less than the temp attribute of the lower temperature than the temp attribute of the upper temperature
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the temp attribute of the current temperature greater
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the alarm control shall be set to RCMVAL_control_on
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the monitor mode equals RCMVAL_normal
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor mode
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_normal
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:equals
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<LogicalRelation>
+							relation: OR
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if the temp attribute of the current temperature is less than the temp attribute of the lower temperature than the temp attribute of the upper temperature
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the temp attribute of the current temperature
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: the#$@$#temp#$@$#attribute of the#$@$#lower#$@$#temperature than the#$@$#temp#$@$#attribute of the#$@$#upper#$@$#temperature
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is less than
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the temp attribute of the current temperature greater
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the temp attribute of the current temperature greater
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: RCMVAL_True
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:equals
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+					<Action>
+						Text = the alarm control shall be set to RCMVAL_control_on
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the alarm control
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_control_on
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-14:]
+		text: the monitor mode shall be initialized to RCMVAL_init .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: the monitor mode shall be initialized to RCMVAL_init .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] )
+					MTL-Formula: G( [(the monitor mode = RCMVAL_init)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: the monitor mode shall be initialized to RCMVAL_init
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: act 
+						SlotType= MainSlot|| Text= the monitor mode shall be initialized to RCMVAL_init
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Action>
+						Text = the monitor mode shall be initialized to RCMVAL_init
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_init
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be initialized to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-36:]
+		text: if the monitor mode is set to RCMVAL_init and the monitor init timeout is set to RCMVAL_true, the monitor mode shall be set to RCMVAL_failed .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor mode is set to RCMVAL_init and the monitor init timeout is set to RCMVAL_true, the monitor mode shall be set to RCMVAL_failed .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((the monitor mode = RCMVAL_init) AND (the monitor init timeout = RCMVAL_true))] ==> [(the monitor mode = RCMVAL_failed)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor mode is set to RCMVAL_init
+					[2]: if the monitor init timeout is set to RCMVAL_true
+					[3]: the monitor mode shall be set to RCMVAL_failed
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor mode is set to RCMVAL_init
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor init timeout is set to RCMVAL_true
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the monitor mode shall be set to RCMVAL_failed
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the monitor mode is set to RCMVAL_init
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor mode
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_init
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the monitor init timeout is set to RCMVAL_true
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor init timeout
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_true
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the monitor mode shall be set to RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-24:]
+		text: if the status attribute of the lower temperature or the upper temperature equals RCMVAL_invalid, the monitor interface failure shall be set to RCMVAL_true.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the status attribute of the lower temperature or the upper temperature equals RCMVAL_invalid, the monitor interface failure shall be set to RCMVAL_true.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(attribute(the status))] ==> [(equal(the upper temperature))] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the status attribute of the lower temperature the upper temperature equals RCMVAL_invalid
+					[2]: the monitor interface failure shall be set to RCMVAL_true
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: act 
+						SlotType= MainSlot|| Text= the upper temperature equals
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the status attribute
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the status attribute
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the status
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:attribute
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the upper temperature equals
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the upper temperature
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-12:]
+		text: if the regulator status equals RCMVAL_true , the regulator init timeout shall be set to RCMVAL_false .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator status equals RCMVAL_true , the regulator init timeout shall be set to RCMVAL_false .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the regulator status = RCMVAL_true)] ==> [(the regulator init timeout = RCMVAL_false)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator status equals RCMVAL_true
+					[2]: the regulator init timeout shall be set to RCMVAL_false
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator status equals RCMVAL_true
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator init timeout shall be set to RCMVAL_false
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the regulator status equals RCMVAL_true
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_true
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the regulator init timeout shall be set to RCMVAL_false
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator init timeout
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_false
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-34:]
+		text: if the monitor mode is set to RCMVAL_init and the monitor status is set to RCMVAL_true, the monitor mode shall be set to RCMVAL_normal .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor mode is set to RCMVAL_init and the monitor status is set to RCMVAL_true, the monitor mode shall be set to RCMVAL_normal .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((the monitor mode = RCMVAL_init) AND (the monitor status = RCMVAL_true))] ==> [(the monitor mode = RCMVAL_normal)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor mode is set to RCMVAL_init
+					[2]: if the monitor status is set to RCMVAL_true
+					[3]: the monitor mode shall be set to RCMVAL_normal
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor mode is set to RCMVAL_init
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor status is set to RCMVAL_true
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the monitor mode shall be set to RCMVAL_normal
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the monitor mode is set to RCMVAL_init
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor mode
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_init
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the monitor status is set to RCMVAL_true
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor status
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_true
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the monitor mode shall be set to RCMVAL_normal
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_normal
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-22:]
+		text: if the regulator mode equals RCMVAL_normal , and temp attribute of the lower desired temperature exceeds the temp attribute of the current temperature , the heat control shall be set to RCMVAL_control_on .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode equals RCMVAL_normal , and temp attribute of the lower desired temperature exceeds the temp attribute of the current temperature , the heat control shall be set to RCMVAL_control_on .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: 
+					MTL-Formula: 
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode equals RCMVAL_normal
+					[2]: if temp attribute of the lower desired temperature exceeds the temp attribute of the current temperature
+					[3]: the heat control shall be set to RCMVAL_control_on
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode equals
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if temp attribute of the lower desired temperature exceeds
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the regulator mode equals
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the regulator mode
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:equals
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if temp attribute of the lower desired temperature exceeds
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: temp attribute of the lower desired temperature
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:exceeds
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-10:]
+		text: the monitor interface mode shall be set to the monitor mode .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: the monitor interface mode shall be set to the monitor mode .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] )
+					MTL-Formula: G( [(the monitor interface mode = the#$@$#monitor#$@$#mode)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: the monitor interface mode shall be set to the monitor mode
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: act 
+						SlotType= MainSlot|| Text= the monitor interface mode shall be set to the monitor mode
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Action>
+						Text = the monitor interface mode shall be set to the monitor mode
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor interface mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: the#$@$#monitor#$@$#mode
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-32:]
+		text: if the monitor interface failure is set to RCMVAL_false and the monitor internal failure is set to RCMVAL_false and the status attribute of the current temperature is set to RCMVAL_valid, the monitor status shall be set to RCMVAL_true.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor interface failure is set to RCMVAL_false and the monitor internal failure is set to RCMVAL_false and the status attribute of the current temperature is set to RCMVAL_valid, the monitor status shall be set to RCMVAL_true.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q) AND (R))] ==> [(S)] )
+					MTL-Formula: G( [((the monitor interface failure = RCMVAL_false) AND (the monitor internal failure = RCMVAL_false) AND (the status attribute of the current temperature = RCMVAL_valid))] ==> [(the monitor status = RCMVAL_true)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor interface failure is set to RCMVAL_false
+					[2]: if the monitor internal failure is set to RCMVAL_false
+					[3]: if the status attribute of the current temperature is set to RCMVAL_valid
+					[4]: the monitor status shall be set to RCMVAL_true
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor interface failure is set to RCMVAL_false
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor internal failure is set to RCMVAL_false
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the status attribute of the current temperature is set to RCMVAL_valid
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the monitor status shall be set to RCMVAL_true
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the monitor interface failure is set to RCMVAL_false
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor interface failure
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_false
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the monitor internal failure is set to RCMVAL_false
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor internal failure
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_false
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the status attribute of the current temperature is set to RCMVAL_valid
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the status attribute of the current temperature
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_valid
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the monitor status shall be set to RCMVAL_true
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_true
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-20:]
+		text: if the status attribute of the lower desired temperature or the upper desired temperature equals RCMVAL_invalid, the regulator interface failure shall be set to RCMVAL_true.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the status attribute of the lower desired temperature or the upper desired temperature equals RCMVAL_invalid, the regulator interface failure shall be set to RCMVAL_true.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: 
+					MTL-Formula: 
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the status attribute of the lower desired temperature equals RCMVAL_invalid
+					[2]: if the upper desired temperature equals RCMVAL_invalid
+					[3]: the regulator interface failure shall be set to RCMVAL_true
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the status attribute of the lower desired temperature equals
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the upper desired temperature equals
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: OR
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the status attribute of the lower desired temperature equals
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the status attribute of the lower desired temperature
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:equals
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the upper desired temperature equals
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the upper desired temperature
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:equals
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-30:]
+		text: if the regulator mode is set to RCMVAL_normal and the regulator status is set to RCMVAL_false, the regulator mode shall be set to RCMVAL_failed .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode is set to RCMVAL_normal and the regulator status is set to RCMVAL_false, the regulator mode shall be set to RCMVAL_failed .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((the regulator mode = RCMVAL_normal) AND (the regulator status = RCMVAL_false))] ==> [(the regulator mode = RCMVAL_failed)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode is set to RCMVAL_normal
+					[2]: if the regulator status is set to RCMVAL_false
+					[3]: the regulator mode shall be set to RCMVAL_failed
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode is set to RCMVAL_normal
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator status is set to RCMVAL_false
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator mode shall be set to RCMVAL_failed
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the regulator mode is set to RCMVAL_normal
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the regulator mode
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_normal
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the regulator status is set to RCMVAL_false
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the regulator status
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_false
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the regulator mode shall be set to RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-3:]
+		text: if the regulator mode equals RCMVAL_failed, the output regulator status shall be set to RCMVAL_failed .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode equals RCMVAL_failed, the output regulator status shall be set to RCMVAL_failed .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the regulator mode = RCMVAL_failed)] ==> [(the output regulator status = RCMVAL_failed)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode equals RCMVAL_failed
+					[2]: the output regulator status shall be set to RCMVAL_failed
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode equals RCMVAL_failed
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the output regulator status shall be set to RCMVAL_failed
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the regulator mode equals RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the output regulator status shall be set to RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the output regulator status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-5:]
+		text: if the regulator mode equals RCMVAL_failed , the heat control shall be set to RCMVAL_control_off .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode equals RCMVAL_failed , the heat control shall be set to RCMVAL_control_off .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the regulator mode = RCMVAL_failed)] ==> [(the heat control = RCMVAL_control_off)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode equals RCMVAL_failed
+					[2]: the heat control shall be set to RCMVAL_control_off
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode equals RCMVAL_failed
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the heat control shall be set to RCMVAL_control_off
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the regulator mode equals RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the heat control shall be set to RCMVAL_control_off
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the heat control
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_control_off
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-7:]
+		text: if the monitor interface mode equals RCMVAL_normal , the output monitor status shall be set to RCMVAL_status_on .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor interface mode equals RCMVAL_normal , the output monitor status shall be set to RCMVAL_status_on .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the monitor interface mode = RCMVAL_normal)] ==> [(the output monitor status = RCMVAL_status_on)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor interface mode equals RCMVAL_normal
+					[2]: the output monitor status shall be set to RCMVAL_status_on
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor interface mode equals RCMVAL_normal
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the output monitor status shall be set to RCMVAL_status_on
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the monitor interface mode equals RCMVAL_normal
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor interface mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_normal
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the output monitor status shall be set to RCMVAL_status_on
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the output monitor status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_status_on
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-9:]
+		text: if the monitor mode equals RCMVAL_init , the alarm control shall be set to RCMVAL_control_off .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor mode equals RCMVAL_init , the alarm control shall be set to RCMVAL_control_off .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the monitor mode = RCMVAL_init)] ==> [(the alarm control = RCMVAL_control_off)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor mode equals RCMVAL_init
+					[2]: the alarm control shall be set to RCMVAL_control_off
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor mode equals RCMVAL_init
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the alarm control shall be set to RCMVAL_control_off
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the monitor mode equals RCMVAL_init
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_init
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the alarm control shall be set to RCMVAL_control_off
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the alarm control
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_control_off
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-2:]
+		text: if the regulator mode equals RCMVAL_normal , the output regulator status shall be set to RCMVAL_status_on .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode equals RCMVAL_normal , the output regulator status shall be set to RCMVAL_status_on .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the regulator mode = RCMVAL_normal)] ==> [(the output regulator status = RCMVAL_status_on)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode equals RCMVAL_normal
+					[2]: the output regulator status shall be set to RCMVAL_status_on
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode equals RCMVAL_normal
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the output regulator status shall be set to RCMVAL_status_on
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the regulator mode equals RCMVAL_normal
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_normal
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the output regulator status shall be set to RCMVAL_status_on
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the output regulator status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_status_on
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-19:]
+		text: when the reset equals RCMVAL_true , the regulator mode shall be set to RCMVAL_init .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: when the reset equals RCMVAL_true , the regulator mode shall be set to RCMVAL_init .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the reset = RCMVAL_true)] ==> [(the regulator mode = RCMVAL_init)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: when the reset equals RCMVAL_true
+					[2]: the regulator mode shall be set to RCMVAL_init
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: trig 
+						SlotType= MainSlot|| Text= when the reset equals RCMVAL_true
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator mode shall be set to RCMVAL_init
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Trigger>
+						Keyword: when
+						Text = when the reset equals RCMVAL_true
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the reset
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_true
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Trigger>
+					<Action>
+						Text = the regulator mode shall be set to RCMVAL_init
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_init
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-29:]
+		text: if the regulator mode equals RCMVAL_init and the regulator status equals RCMVAL_true, the regulator mode shall be set to RCMVAL_normal.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode equals RCMVAL_init and the regulator status equals RCMVAL_true, the regulator mode shall be set to RCMVAL_normal.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(equal(the regulator mode))] ==> [(equal(the regulator status))] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode equals equals RCMVAL_true
+					[2]: if equals RCMVAL_init equals RCMVAL_true
+					[3]: if equals the regulator status equals RCMVAL_true
+					[4]: the regulator mode shall be set to RCMVAL_normal
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode equals
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if equals RCMVAL_init equals
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator status equals
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if equals
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the regulator mode equals
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the regulator status equals
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator status
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-17:]
+		text: if the regulator mode equals RCMVAL_failed , the regulator mode shall never be set to RCMVAL_normal .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode equals RCMVAL_failed , the regulator mode shall never be set to RCMVAL_normal .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the regulator mode = RCMVAL_failed)] ==> [(the regulator mode = RCMVAL_normal)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode equals RCMVAL_failed
+					[2]: the regulator mode shall never be set to RCMVAL_normal
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode equals RCMVAL_failed
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator mode shall never be set to RCMVAL_normal
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the regulator mode equals RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the regulator mode shall never be set to RCMVAL_normal
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_normal
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall never be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-27:]
+		text: if the regulator interface failure is set to RCMVAL_false, and the regulator internal failure is set to RCMVAL_false, and the status attribute of the current temperature is set to RCMVAL_valid, the regulator status shall be set to RCMVAL_true.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator interface failure is set to RCMVAL_false, and the regulator internal failure is set to RCMVAL_false, and the status attribute of the current temperature is set to RCMVAL_valid, the regulator status shall be set to RCMVAL_true.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND ((Q) AND (R)))] ==> [(S)] )
+					MTL-Formula: G( [((the regulator interface failure = RCMVAL_false) AND ((the regulator internal failure = RCMVAL_false) AND (the status attribute of the current temperature = RCMVAL_valid)))] ==> [(the regulator status = RCMVAL_true)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator interface failure is set to RCMVAL_false
+					[2]: if the regulator internal failure is set to RCMVAL_false
+					[3]: if the status attribute of the current temperature is set to RCMVAL_valid
+					[4]: the regulator status shall be set to RCMVAL_true
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator interface failure is set to RCMVAL_false
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator internal failure is set to RCMVAL_false
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the status attribute of the current temperature is set to RCMVAL_valid
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator status shall be set to RCMVAL_true
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the regulator interface failure is set to RCMVAL_false
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the regulator interface failure
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_false
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<LogicalRelation>
+							relation: AND
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if the regulator internal failure is set to RCMVAL_false
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the regulator internal failure
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: RCMVAL_false
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is set to
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the status attribute of the current temperature is set to RCMVAL_valid
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the status attribute of the current temperature
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: RCMVAL_valid
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is set to
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+					<Action>
+						Text = the regulator status shall be set to RCMVAL_true
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_true
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-15:]
+		text: if the monitor status equals RCMVAL_true , the monitor init timeout shall be set to RCMVAL_false .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor status equals RCMVAL_true , the monitor init timeout shall be set to RCMVAL_false .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the monitor status = RCMVAL_true)] ==> [(the monitor init timeout = RCMVAL_false)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor status equals RCMVAL_true
+					[2]: the monitor init timeout shall be set to RCMVAL_false
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor status equals RCMVAL_true
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the monitor init timeout shall be set to RCMVAL_false
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the monitor status equals RCMVAL_true
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_true
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the monitor init timeout shall be set to RCMVAL_false
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor init timeout
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_false
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-25:]
+		text: if the status attribute of the lower temperature and the upper temperature equals RCMVAL_valid, the monitor interface failure shall be set to RCMVAL_false.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the status attribute of the lower temperature and the upper temperature equals RCMVAL_valid, the monitor interface failure shall be set to RCMVAL_false.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(attribute(the status))] ==> [(equal(the upper temperature))] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the status attribute of the lower temperature the upper temperature equals RCMVAL_valid
+					[2]: the monitor interface failure shall be set to RCMVAL_false
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: act 
+						SlotType= MainSlot|| Text= the upper temperature equals
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the status attribute
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the status attribute
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the status
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:attribute
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the upper temperature equals
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the upper temperature
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-13:]
+		text: if the regulator status equals RCMVAL_false , the regulator init timeout shall be set to RCMVAL_true .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator status equals RCMVAL_false , the regulator init timeout shall be set to RCMVAL_true .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the regulator status = RCMVAL_false)] ==> [(the regulator init timeout = RCMVAL_true)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator status equals RCMVAL_false
+					[2]: the regulator init timeout shall be set to RCMVAL_true
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator status equals RCMVAL_false
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator init timeout shall be set to RCMVAL_true
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the regulator status equals RCMVAL_false
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_false
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the regulator init timeout shall be set to RCMVAL_true
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator init timeout
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_true
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-35:]
+		text: if the monitor mode is set to RCMVAL_normal and the monitor status is set to RCMVAL_false, the monitor mode shall be set to RCMVAL_failed .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor mode is set to RCMVAL_normal and the monitor status is set to RCMVAL_false, the monitor mode shall be set to RCMVAL_failed .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((the monitor mode = RCMVAL_normal) AND (the monitor status = RCMVAL_false))] ==> [(the monitor mode = RCMVAL_failed)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor mode is set to RCMVAL_normal
+					[2]: if the monitor status is set to RCMVAL_false
+					[3]: the monitor mode shall be set to RCMVAL_failed
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor mode is set to RCMVAL_normal
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor status is set to RCMVAL_false
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the monitor mode shall be set to RCMVAL_failed
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the monitor mode is set to RCMVAL_normal
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor mode
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_normal
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the monitor status is set to RCMVAL_false
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor status
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_false
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the monitor mode shall be set to RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-23:]
+		text: if the regulator mode equals RCMVAL_normal , and the temp attribute of the current temperature exceeds the temp attribute of the upper desired temperature , the heat control shall be set to RCMVAL_control_off .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode equals RCMVAL_normal , and the temp attribute of the current temperature exceeds the temp attribute of the upper desired temperature , the heat control shall be set to RCMVAL_control_off .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: 
+					MTL-Formula: 
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode equals RCMVAL_normal
+					[2]: if the temp attribute of the current temperature exceeds the temp attribute of the upper desired temperature
+					[3]: the heat control shall be set to RCMVAL_control_off
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode equals
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the temp attribute of the current temperature exceeds
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the regulator mode equals
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the regulator mode
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:equals
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the temp attribute of the current temperature exceeds
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the temp attribute of the current temperature
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:exceeds
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-11:]
+		text: the regulator mode shall be initialized to RCMVAL_init .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: the regulator mode shall be initialized to RCMVAL_init .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] )
+					MTL-Formula: G( [(the regulator mode = RCMVAL_init)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: the regulator mode shall be initialized to RCMVAL_init
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator mode shall be initialized to RCMVAL_init
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Action>
+						Text = the regulator mode shall be initialized to RCMVAL_init
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_init
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be initialized to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-33:]
+		text: if the monitor interface failure is set to RCMVAL_true or the monitor internal failure is set to RCMVAL_true or the status attribute of the current temperature is not set to RCMVAL_valid , the monitor status shall be set to RCMVAL_false.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor interface failure is set to RCMVAL_true or the monitor internal failure is set to RCMVAL_true or the status attribute of the current temperature is not set to RCMVAL_valid , the monitor status shall be set to RCMVAL_false.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) OR (Q) OR (¬R))] ==> [(S)] )
+					MTL-Formula: G( [((the monitor interface failure = RCMVAL_true) OR (the monitor internal failure = RCMVAL_true) OR (¬the status attribute of the current temperature = RCMVAL_valid))] ==> [(the monitor status = RCMVAL_false)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor interface failure is set to RCMVAL_true
+					[2]: if the monitor internal failure is set to RCMVAL_true
+					[3]: if the status attribute of the current temperature is not set to RCMVAL_valid
+					[4]: the monitor status shall be set to RCMVAL_false
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor interface failure is set to RCMVAL_true
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor internal failure is set to RCMVAL_true
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the status attribute of the current temperature is not set to RCMVAL_valid
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the monitor status shall be set to RCMVAL_false
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: OR
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the monitor interface failure is set to RCMVAL_true
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor interface failure
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_true
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the monitor internal failure is set to RCMVAL_true
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the monitor internal failure
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_true
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the status attribute of the current temperature is not set to RCMVAL_valid
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the status attribute of the current temperature
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_valid
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: true
+						</Condition>
+					<Action>
+						Text = the monitor status shall be set to RCMVAL_false
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_false
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-21:]
+		text: if the status attribute of the lower desired temperature and the upper desired temperature equals RCMVAL_valid, the regulator interface failure shall be set to RCMVAL_false.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the status attribute of the lower desired temperature and the upper desired temperature equals RCMVAL_valid, the regulator interface failure shall be set to RCMVAL_false.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: 
+					MTL-Formula: 
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the status attribute of the lower desired temperature equals RCMVAL_valid
+					[2]: if the upper desired temperature equals RCMVAL_valid
+					[3]: the regulator interface failure shall be set to RCMVAL_false
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the status attribute of the lower desired temperature equals
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the upper desired temperature equals
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the status attribute of the lower desired temperature equals
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the status attribute of the lower desired temperature
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:equals
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the upper desired temperature equals
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the upper desired temperature
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:equals
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-31:]
+		text: if the regulator mode is set to RCMVAL_init and the regulator init timeout is set to RCMVAL_true, the regulator mode shall be set to RCMVAL_failed .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode is set to RCMVAL_init and the regulator init timeout is set to RCMVAL_true, the regulator mode shall be set to RCMVAL_failed .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((the regulator mode = RCMVAL_init) AND (the regulator init timeout = RCMVAL_true))] ==> [(the regulator mode = RCMVAL_failed)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode is set to RCMVAL_init
+					[2]: if the regulator init timeout is set to RCMVAL_true
+					[3]: the regulator mode shall be set to RCMVAL_failed
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode is set to RCMVAL_init
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator init timeout is set to RCMVAL_true
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the regulator mode shall be set to RCMVAL_failed
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the regulator mode is set to RCMVAL_init
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the regulator mode
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_init
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the regulator init timeout is set to RCMVAL_true
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the regulator init timeout
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_true
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is set to
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the regulator mode shall be set to RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-4:]
+		text: if the regulator mode equals RCMVAL_init, the heat control shall be set to RCMVAL_control_off.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the regulator mode equals RCMVAL_init, the heat control shall be set to RCMVAL_control_off.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the regulator mode = RCMVAL_init)] ==> [(the heat control = RCMVAL_control_off)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the regulator mode equals RCMVAL_init
+					[2]: the heat control shall be set to RCMVAL_control_off
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the regulator mode equals RCMVAL_init
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the heat control shall be set to RCMVAL_control_off
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the regulator mode equals RCMVAL_init
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the regulator mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_init
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the heat control shall be set to RCMVAL_control_off
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the heat control
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_control_off
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-6:]
+		text: if the monitor interface mode equals RCMVAL_init , the output monitor status shall be set to RCMVAL_init .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor interface mode equals RCMVAL_init , the output monitor status shall be set to RCMVAL_init .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the monitor interface mode = RCMVAL_init)] ==> [(the output monitor status = RCMVAL_init)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor interface mode equals RCMVAL_init
+					[2]: the output monitor status shall be set to RCMVAL_init
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor interface mode equals RCMVAL_init
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the output monitor status shall be set to RCMVAL_init
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the monitor interface mode equals RCMVAL_init
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor interface mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_init
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the output monitor status shall be set to RCMVAL_init
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the output monitor status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_init
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [TempReqId-8:]
+		text: if the monitor interface mode equals RCMVAL_failed , the output monitor status shall be set to RCMVAL_failed .
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text: if the monitor interface mode equals RCMVAL_failed , the output monitor status shall be set to RCMVAL_failed .
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the monitor interface mode = RCMVAL_failed)] ==> [(the output monitor status = RCMVAL_failed)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the monitor interface mode equals RCMVAL_failed
+					[2]: the output monitor status shall be set to RCMVAL_failed
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the monitor interface mode equals RCMVAL_failed
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the output monitor status shall be set to RCMVAL_failed
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the monitor interface mode equals RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the monitor interface mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:equals
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the output monitor status shall be set to RCMVAL_failed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the output monitor status
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_failed
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:shall be set to
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+</SucceededRequirement>
+</log>

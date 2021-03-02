@@ -1,0 +1,5776 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+	<SRCM_Metrics>
+		Total Requirements = 29,Unique-ActionSources = 29
+		Total Triggers = 8, 		Unique-SystemTriggers = 5
+		Total Conditions = 54, 	Unique-SystemConditions = 30
+		Total Actions = 30,		Unique-SystemActions = 26
+		Total Entities = 92, 	Unique-SystemEntities = 38
+	</SRCM_Metrics>
+	<SystemActionSource>
+		<ActionSource>
+			Key = AS2
+			Req-Text =  if a confirmation button is available, and the confirmation_yes is pressed, the manual mode is started.
+			Triggers-Relation = null
+			Conditions-Relation = ( C1 AND C2 )
+			Actions-Relation = A2
+			<SysCondition>
+				Key = C1
+				<Entity>
+					Key = E1
+					Text = a confirmation button
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C2
+				<Entity>
+					Key = E2
+					Text = the confirmation_yes
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A2
+				<Entity>
+					Key = E4
+					Text = the manual mode
+				</Entity>
+				<Value>
+					Text = starts
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS3
+			Req-Text =  if a confirmation button is available and the RCMTECHTERM_terminate_auto_control_button is pressed, the next RCMTECHTERM_terminate_auto_control_button is disabled.
+			Triggers-Relation = null
+			Conditions-Relation = ( C1 AND C3 )
+			Actions-Relation = A3
+			<SysCondition>
+				Key = C1
+				<Entity>
+					Key = E1
+					Text = a confirmation button
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C3
+				<Entity>
+					Key = E5
+					Text = the RCMTECHTERM_terminate_auto_control_button
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A3
+				<Entity>
+					Key = E6
+					Text = the next RCMTECHTERM_terminate_auto_control_button
+				</Entity>
+				<Value>
+					Text = disabled
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS4
+			Req-Text =  if a pump is plugged in, and an infusate is ready, and the occlusion line is clear, the RCMTECHTERM_auto_control_mode can be started.
+			Triggers-Relation = null
+			Conditions-Relation = ( C4 AND ( C5 AND C6 ) )
+			Actions-Relation = A4
+			<SysCondition>
+				Key = C4
+				<Entity>
+					Key = E7
+					Text = a pump
+				</Entity>
+				<Value>
+					Text = plugs
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C5
+				<Entity>
+					Key = E8
+					Text = an infusate
+				</Entity>
+				<Value>
+					Text = ready
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C6
+				<Entity>
+					Key = E9
+					Text = the occlusion line
+				</Entity>
+				<Value>
+					Text = clear
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A4
+				<Entity>
+					Key = E10
+					Text = the RCMTECHTERM_auto_control_mode
+				</Entity>
+				<Value>
+					Text = starts
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS5
+			Req-Text =  if the RCMTECHTERM_air_ok_signal is low, the RCMTECHTERM_auto_control_mode is terminated within 3 sec.
+			Triggers-Relation = null
+			Conditions-Relation = C7
+			Actions-Relation = A5
+			<SysCondition>
+				Key = C7
+				<Entity>
+					Key = E11
+					Text = the RCMTECHTERM_air_ok_signal
+				</Entity>
+				<Value>
+					Text = low
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A5
+				<Entity>
+					Key = E10
+					Text = the RCMTECHTERM_auto_control_mode
+				</Entity>
+				<Value>
+					Text = terminates
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS6
+			Req-Text =  if the blood pressure is not valid after at least 180 sec, the manual mode should be triggered.
+			Triggers-Relation = null
+			Conditions-Relation = C8
+			Actions-Relation = A6
+			<SysCondition>
+				Key = C8
+				<Entity>
+					Key = E12
+					Text = the blood pressure
+				</Entity>
+				<Value>
+					Text = valid
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A6
+				<Entity>
+					Key = E4
+					Text = the manual mode
+				</Entity>
+				<Value>
+					Text = triggers
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS19
+			Req-Text =  if a confirmation button is available, and the confirmation_no is pressed, the next confirmation_no is disabled.
+			Triggers-Relation = null
+			Conditions-Relation = ( C1 AND C25 )
+			Actions-Relation = A19
+			<SysCondition>
+				Key = C1
+				<Entity>
+					Key = E1
+					Text = a confirmation button
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C25
+				<Entity>
+					Key = E29
+					Text = the confirmation_no
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A19
+				<Entity>
+					Key = E31
+					Text = the next confirmation_no
+				</Entity>
+				<Value>
+					Text = disabled
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS7
+			Req-Text =  when the RCMTECHTERM_override_selection is provided, if the override_yes is pressed, and the arterial line is RCMVAL_corroborated, and the pulse wave is not RCMVAL_corroborated, the next pulse wave is selected.
+			Triggers-Relation = T1
+			Conditions-Relation = ( C9 AND ( C10 AND C11 ) )
+			Actions-Relation = A7
+			<SysTrigger>
+				Key = T1
+				<Entity>
+					Key = E16
+					Text = the RCMTECHTERM_override_selection
+				</Entity>
+				<Value>
+					Text = provides
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysTrigger>
+			<SysCondition>
+				Key = C10
+				<Entity>
+					Key = E14
+					Text = the arterial line
+				</Entity>
+				<Value>
+					Text = RCMVAL_corroborated
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C11
+				<Entity>
+					Key = E15
+					Text = the pulse wave
+				</Entity>
+				<Value>
+					Text = not#$@$#RCMVAL_corroborated
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C9
+				<Entity>
+					Key = E13
+					Text = the override_yes
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A7
+				<Entity>
+					Key = E17
+					Text = the next pulse wave
+				</Entity>
+				<Value>
+					Text = selects
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS8
+			Req-Text =  when the RCMTECHTERM_auto_control_mode is running, the cuff will be inflated.
+			Triggers-Relation = T2
+			Conditions-Relation = null
+			Actions-Relation = A8
+			<SysTrigger>
+				Key = T2
+				<Entity>
+					Key = E10
+					Text = the RCMTECHTERM_auto_control_mode
+				</Entity>
+				<Value>
+					Text = runs
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysTrigger>
+			<SysAction>
+				Key = A8
+				<Entity>
+					Key = E18
+					Text = the cuff
+				</Entity>
+				<Value>
+					Text = inflates
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS17
+			Req-Text =  when the RCMTECHTERM_terminate_auto_control_button is selected, a confirmation button is available.
+			Triggers-Relation = T3
+			Conditions-Relation = null
+			Actions-Relation = A17
+			<SysTrigger>
+				Key = T3
+				<Entity>
+					Key = E5
+					Text = the RCMTECHTERM_terminate_auto_control_button
+				</Entity>
+				<Value>
+					Text = selects
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysTrigger>
+			<SysAction>
+				Key = A17
+				<Entity>
+					Key = E1
+					Text = a confirmation button
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS9
+			Req-Text =  when the RCMTECHTERM_auto_control_mode is running, the RCMTECHTERM_terminate_auto_control_button should be available.
+			Triggers-Relation = T2
+			Conditions-Relation = null
+			Actions-Relation = A9
+			<SysTrigger>
+				Key = T2
+				<Entity>
+					Key = E10
+					Text = the RCMTECHTERM_auto_control_mode
+				</Entity>
+				<Value>
+					Text = runs
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysTrigger>
+			<SysAction>
+				Key = A9
+				<Entity>
+					Key = E5
+					Text = the RCMTECHTERM_terminate_auto_control_button
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS18
+			Req-Text =  if the cuff and the arterial line and the pulse wave are not available, the next manual mode is started.
+			Triggers-Relation = null
+			Conditions-Relation = ( C16 AND C22 )
+			Actions-Relation = A18
+			<SysCondition>
+				Key = C16
+				<Entity>
+					Key = E18
+					Text = the cuff
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C22
+				<Entity>
+					Key = E14
+					Text = the arterial line
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A18
+				<Entity>
+					Key = E30
+					Text = the next manual mode
+				</Entity>
+				<Value>
+					Text = starts
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS15
+			Req-Text =  if the RCMTECHTERM_auto_control_mode is running, and the arterial line or the pulse wave or cuff is lost, an alarm should sound in 60 seconds.
+			Triggers-Relation = null
+			Conditions-Relation = ( C23 AND ( C24 OR C24 OR C24 ) )
+			Actions-Relation = A15
+			<SysCondition>
+				Key = C23
+				<Entity>
+					Key = E10
+					Text = the RCMTECHTERM_auto_control_mode
+				</Entity>
+				<Value>
+					Text = runs
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C24
+				<Entity>
+					Key = E27
+					Text = the pulse wave cuff
+				</Entity>
+				<Value>
+					Text = loses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C24
+				<Entity>
+					Key = E27
+					Text = the pulse wave cuff
+				</Entity>
+				<Value>
+					Text = loses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C24
+				<Entity>
+					Key = E27
+					Text = the pulse wave cuff
+				</Entity>
+				<Value>
+					Text = loses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A15
+				<Entity>
+					Key = E28
+					Text = an alarm
+				</Entity>
+				<Value>
+					Text = sounds
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS16
+			Req-Text =  if a confirmation button is available, and the confirmation_no is pressed, the RCMTECHTERM_auto_control_mode is running.
+			Triggers-Relation = null
+			Conditions-Relation = ( C1 AND C25 )
+			Actions-Relation = A16
+			<SysCondition>
+				Key = C1
+				<Entity>
+					Key = E1
+					Text = a confirmation button
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C25
+				<Entity>
+					Key = E29
+					Text = the confirmation_no
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A16
+				<Entity>
+					Key = E10
+					Text = the RCMTECHTERM_auto_control_mode
+				</Entity>
+				<Value>
+					Text = runs
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS13
+			Req-Text =  if the manual mode is running and the RCMTECHTERM_start_auto_control_button is pressed, the next corroboration is triggered.
+			Triggers-Relation = null
+			Conditions-Relation = ( C19 AND C20 )
+			Actions-Relation = A13
+			<SysCondition>
+				Key = C19
+				<Entity>
+					Key = E4
+					Text = the manual mode
+				</Entity>
+				<Value>
+					Text = runs
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C20
+				<Entity>
+					Key = E24
+					Text = the RCMTECHTERM_start_auto_control_button
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A13
+				<Entity>
+					Key = E25
+					Text = the next corroboration
+				</Entity>
+				<Value>
+					Text = triggers
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS14
+			Req-Text =  if the pulse wave or the arterial line is available, and cuff is selected, corroboration is triggered.
+			Triggers-Relation = null
+			Conditions-Relation = ( ( C21 OR C22 ) AND C14 )
+			Actions-Relation = A14
+			<SysCondition>
+				Key = C14
+				<Entity>
+					Key = E19
+					Text = cuff
+				</Entity>
+				<Value>
+					Text = selects
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C21
+				<Entity>
+					Key = E15
+					Text = the pulse wave
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C22
+				<Entity>
+					Key = E14
+					Text = the arterial line
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A14
+				<Entity>
+					Key = E26
+					Text = corroboration
+				</Entity>
+				<Value>
+					Text = triggers
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS11
+			Req-Text =  if the arterial line and the pulse wave are RCMVAL_corroborated, and the cuff is available, the arterial line is selected.
+			Triggers-Relation = null
+			Conditions-Relation = ( ( C10 AND C15 ) AND C16 )
+			Actions-Relation = A11
+			<SysCondition>
+				Key = C10
+				<Entity>
+					Key = E14
+					Text = the arterial line
+				</Entity>
+				<Value>
+					Text = RCMVAL_corroborated
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C15
+				<Entity>
+					Key = E15
+					Text = the pulse wave
+				</Entity>
+				<Value>
+					Text = RCMVAL_corroborated
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C16
+				<Entity>
+					Key = E18
+					Text = the cuff
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A11
+				<Entity>
+					Key = E14
+					Text = the arterial line
+				</Entity>
+				<Value>
+					Text = selects
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS12
+			Req-Text =  if RCMTECHTERM_auto_control_mode is running, and the RCMTECHTERM_impedance_reading is unavailable, the next RCMTECHTERM_auto_control_model is terminated.
+			Triggers-Relation = null
+			Conditions-Relation = ( C17 AND C18 )
+			Actions-Relation = A12
+			<SysCondition>
+				Key = C17
+				<Entity>
+					Key = E21
+					Text = RCMTECHTERM_auto_control_mode
+				</Entity>
+				<Value>
+					Text = runs
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C18
+				<Entity>
+					Key = E22
+					Text = the RCMTECHTERM_impedance_reading
+				</Entity>
+				<Value>
+					Text = unavailable
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A12
+				<Entity>
+					Key = E23
+					Text = the next RCMTERMl
+				</Entity>
+				<Value>
+					Text = terminates
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS10
+			Req-Text =  if the pulse wave and the arterial line are unavailable, and cuff is selected, and the blood pressure is not valid, the next the manual mode is started.
+			Triggers-Relation = null
+			Conditions-Relation = ( ( C12 AND C13 ) AND ( C14 AND C8 ) )
+			Actions-Relation = A10
+			<SysCondition>
+				Key = C12
+				<Entity>
+					Key = E15
+					Text = the pulse wave
+				</Entity>
+				<Value>
+					Text = unavailable
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C13
+				<Entity>
+					Key = E14
+					Text = the arterial line
+				</Entity>
+				<Value>
+					Text = unavailable
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C14
+				<Entity>
+					Key = E19
+					Text = cuff
+				</Entity>
+				<Value>
+					Text = selects
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C8
+				<Entity>
+					Key = E12
+					Text = the blood pressure
+				</Entity>
+				<Value>
+					Text = valid
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A10
+				<Entity>
+					Key = E20
+					Text = the next
+				</Entity>
+				<Value>
+					Text = starts
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS28
+			Req-Text = req_17c3: if the alarm_reset_button is pressed, the alarm is disabled.
+			Triggers-Relation = null
+			Conditions-Relation = C30
+			Actions-Relation = A26
+			<SysCondition>
+				Key = C30
+				<Entity>
+					Key = E37
+					Text = the alarm_reset_button
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A26
+				<Entity>
+					Key = E38
+					Text = the alarm
+				</Entity>
+				<Value>
+					Text = disabled
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS29
+			Req-Text =  if the pulse wave is RCMVAL_corroborated, and the cuff is available, and the arterial line is not RCMVAL_corroborated, the next pulse wave is selected.
+			Triggers-Relation = null
+			Conditions-Relation = ( C15 AND ( C16 AND C27 ) )
+			Actions-Relation = A7
+			<SysCondition>
+				Key = C15
+				<Entity>
+					Key = E15
+					Text = the pulse wave
+				</Entity>
+				<Value>
+					Text = RCMVAL_corroborated
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C16
+				<Entity>
+					Key = E18
+					Text = the cuff
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C27
+				<Entity>
+					Key = E14
+					Text = the arterial line
+				</Entity>
+				<Value>
+					Text = not#$@$#RCMVAL_corroborated
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A7
+				<Entity>
+					Key = E17
+					Text = the next pulse wave
+				</Entity>
+				<Value>
+					Text = selects
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS26
+			Req-Text =  the cara will be operational when the RCMVAR_lstat is RCMVAL_poweredon.
+			Triggers-Relation = T5
+			Conditions-Relation = null
+			Actions-Relation = A23
+			<SysTrigger>
+				Key = T5
+				<Entity>
+					Key = E35
+					Text = the RCMVAR_lstat
+				</Entity>
+				<Value>
+					Text = RCMVAL_poweredon
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysTrigger>
+			<SysAction>
+				Key = A23
+				<Entity>
+					Key = E36
+					Text = the cara
+				</Entity>
+				<Value>
+					Text = operational
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS27
+			Req-Text =  if the RCMTECHTERM_start_auto_control_button is pressed, and the cuff is not available, an alarm is issued and the RCMTECHTERM_override_selection is provided.
+			Triggers-Relation = null
+			Conditions-Relation = ( C20 AND C16 )
+			Actions-Relation = ( A24 AND A25 )
+			<SysCondition>
+				Key = C16
+				<Entity>
+					Key = E18
+					Text = the cuff
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C20
+				<Entity>
+					Key = E24
+					Text = the RCMTECHTERM_start_auto_control_button
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A24
+				<Entity>
+					Key = E28
+					Text = an alarm
+				</Entity>
+				<Value>
+					Text = issues
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+			<SysAction>
+				Key = A25
+				<Entity>
+					Key = E16
+					Text = the RCMTECHTERM_override_selection
+				</Entity>
+				<Value>
+					Text = provides
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS24
+			Req-Text =  when the RCMTECHTERM_override_selection is provided, if the override_no is pressed, the next manual mode is started.
+			Triggers-Relation = T1
+			Conditions-Relation = C29
+			Actions-Relation = A18
+			<SysTrigger>
+				Key = T1
+				<Entity>
+					Key = E16
+					Text = the RCMTECHTERM_override_selection
+				</Entity>
+				<Value>
+					Text = provides
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysTrigger>
+			<SysCondition>
+				Key = C29
+				<Entity>
+					Key = E33
+					Text = the override_no
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A18
+				<Entity>
+					Key = E30
+					Text = the next manual mode
+				</Entity>
+				<Value>
+					Text = starts
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS25
+			Req-Text =  when the RCMTECHTERM_override_selection is provided, if the override_yes is pressed, and the arterial line is not RCMVAL_corroborated, the next arterial line is selected.
+			Triggers-Relation = T1
+			Conditions-Relation = ( C9 AND C27 )
+			Actions-Relation = A22
+			<SysTrigger>
+				Key = T1
+				<Entity>
+					Key = E16
+					Text = the RCMTECHTERM_override_selection
+				</Entity>
+				<Value>
+					Text = provides
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysTrigger>
+			<SysCondition>
+				Key = C27
+				<Entity>
+					Key = E14
+					Text = the arterial line
+				</Entity>
+				<Value>
+					Text = not#$@$#RCMVAL_corroborated
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C9
+				<Entity>
+					Key = E13
+					Text = the override_yes
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A22
+				<Entity>
+					Key = E34
+					Text = the next arterial line
+				</Entity>
+				<Value>
+					Text = selects
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS22
+			Req-Text =  if the arterial line is not RCMVAL_corroborated, and the pulse wave is not RCMVAL_corroborated, and the cuff is available, the cuff is selected.
+			Triggers-Relation = null
+			Conditions-Relation = ( C27 AND ( C11 AND C16 ) )
+			Actions-Relation = A21
+			<SysCondition>
+				Key = C11
+				<Entity>
+					Key = E15
+					Text = the pulse wave
+				</Entity>
+				<Value>
+					Text = not#$@$#RCMVAL_corroborated
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C16
+				<Entity>
+					Key = E18
+					Text = the cuff
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C27
+				<Entity>
+					Key = E14
+					Text = the arterial line
+				</Entity>
+				<Value>
+					Text = not#$@$#RCMVAL_corroborated
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A21
+				<Entity>
+					Key = E18
+					Text = the cuff
+				</Entity>
+				<Value>
+					Text = selects
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS23
+			Req-Text =  if the pulse wave is selected, and the arterial line is available, corroboration is triggered.
+			Triggers-Relation = null
+			Conditions-Relation = ( C28 AND C22 )
+			Actions-Relation = A14
+			<SysCondition>
+				Key = C22
+				<Entity>
+					Key = E14
+					Text = the arterial line
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C28
+				<Entity>
+					Key = E15
+					Text = the pulse wave
+				</Entity>
+				<Value>
+					Text = selects
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A14
+				<Entity>
+					Key = E26
+					Text = corroboration
+				</Entity>
+				<Value>
+					Text = triggers
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS20
+			Req-Text =  when the RCMTECHTERM_start_auto_control_button is enabled, the RCMTECHTERM_start_auto_control_button is enabled before it is pressed.
+			Triggers-Relation = T4
+			Conditions-Relation = null
+			Actions-Relation = A20
+			<SysTrigger>
+				Key = T4
+				<Entity>
+					Key = E24
+					Text = the RCMTECHTERM_start_auto_control_button
+				</Entity>
+				<Value>
+					Text = enables
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysTrigger>
+			<SysAction>
+				Key = A20
+				<Entity>
+					Key = E24
+					Text = the RCMTECHTERM_start_auto_control_button
+				</Entity>
+				<Value>
+					Text = enables
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS21
+			Req-Text =  if an occlusion is detected, and the RCMTECHTERM_auto_control_mode is running, the RCMTECHTERM_auto_control_mode will be terminated.
+			Triggers-Relation = null
+			Conditions-Relation = ( C26 AND C23 )
+			Actions-Relation = A5
+			<SysCondition>
+				Key = C23
+				<Entity>
+					Key = E10
+					Text = the RCMTECHTERM_auto_control_mode
+				</Entity>
+				<Value>
+					Text = runs
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C26
+				<Entity>
+					Key = E32
+					Text = an occlusion
+				</Entity>
+				<Value>
+					Text = detects
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A5
+				<Entity>
+					Key = E10
+					Text = the RCMTECHTERM_auto_control_mode
+				</Entity>
+				<Value>
+					Text = terminates
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+		<ActionSource>
+			Key = AS1
+			Req-Text =  if a confirmation button is available, and the confirmation_yes is pressed, the next confirmation_yes is disabled.
+			Triggers-Relation = null
+			Conditions-Relation = ( C1 AND C2 )
+			Actions-Relation = A1
+			<SysCondition>
+				Key = C1
+				<Entity>
+					Key = E1
+					Text = a confirmation button
+				</Entity>
+				<Value>
+					Text = available
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysCondition>
+				Key = C2
+				<Entity>
+					Key = E2
+					Text = the confirmation_yes
+				</Entity>
+				<Value>
+					Text = presses
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysCondition>
+			<SysAction>
+				Key = A1
+				<Entity>
+					Key = E3
+					Text = the next confirmation_yes
+				</Entity>
+				<Value>
+					Text = disabled
+					Type = InternalValue
+					SourceEntity = null
+				</Value>
+				Relation is "be"
+				Operator is "="
+			</SysAction>
+		</ActionSource>
+	</SystemActionSource>
+	<SystemTriggers>
+		<SysTrigger>
+			<Entity>
+				Key = E24
+				Text = the RCMTECHTERM_start_auto_control_button
+			</Entity>
+			<Value>
+				Text = enables
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS20]
+		</SysTrigger>
+		<SysTrigger>
+			<Entity>
+				Key = E35
+				Text = the RCMVAR_lstat
+			</Entity>
+			<Value>
+				Text = RCMVAL_poweredon
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS26]
+		</SysTrigger>
+		<SysTrigger>
+			<Entity>
+				Key = E16
+				Text = the RCMTECHTERM_override_selection
+			</Entity>
+			<Value>
+				Text = provides
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS7, AS24, AS25]
+		</SysTrigger>
+		<SysTrigger>
+			<Entity>
+				Key = E10
+				Text = the RCMTECHTERM_auto_control_mode
+			</Entity>
+			<Value>
+				Text = runs
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS8, AS9]
+		</SysTrigger>
+		<SysTrigger>
+			<Entity>
+				Key = E5
+				Text = the RCMTECHTERM_terminate_auto_control_button
+			</Entity>
+			<Value>
+				Text = selects
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS17]
+		</SysTrigger>
+	</SystemTriggers>
+	<SystemConditions>
+		<SysCondition>
+			Key = C20
+			<Entity>
+				Key = E24
+				Text = the RCMTECHTERM_start_auto_control_button
+			</Entity>
+			<Value>
+				Text = presses
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS13, AS27]
+		</SysCondition>
+		<SysCondition>
+			Key = C22
+			<Entity>
+				Key = E14
+				Text = the arterial line
+			</Entity>
+			<Value>
+				Text = available
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS14, AS18, AS23]
+		</SysCondition>
+		<SysCondition>
+			Key = C21
+			<Entity>
+				Key = E15
+				Text = the pulse wave
+			</Entity>
+			<Value>
+				Text = available
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS14]
+		</SysCondition>
+		<SysCondition>
+			Key = C24
+			<Entity>
+				Key = E27
+				Text = the pulse wave cuff
+			</Entity>
+			<Value>
+				Text = loses
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS15, AS15, AS15]
+		</SysCondition>
+		<SysCondition>
+			Key = C23
+			<Entity>
+				Key = E10
+				Text = the RCMTECHTERM_auto_control_mode
+			</Entity>
+			<Value>
+				Text = runs
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS15, AS21]
+		</SysCondition>
+		<SysCondition>
+			Key = C26
+			<Entity>
+				Key = E32
+				Text = an occlusion
+			</Entity>
+			<Value>
+				Text = detects
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS21]
+		</SysCondition>
+		<SysCondition>
+			Key = C25
+			<Entity>
+				Key = E29
+				Text = the confirmation_no
+			</Entity>
+			<Value>
+				Text = presses
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS16, AS19]
+		</SysCondition>
+		<SysCondition>
+			Key = C28
+			<Entity>
+				Key = E15
+				Text = the pulse wave
+			</Entity>
+			<Value>
+				Text = selects
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS23]
+		</SysCondition>
+		<SysCondition>
+			Key = C27
+			<Entity>
+				Key = E14
+				Text = the arterial line
+			</Entity>
+			<Value>
+				Text = not#$@$#RCMVAL_corroborated
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS22, AS25, AS29]
+		</SysCondition>
+		<SysCondition>
+			Key = C29
+			<Entity>
+				Key = E33
+				Text = the override_no
+			</Entity>
+			<Value>
+				Text = presses
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS24]
+		</SysCondition>
+		<SysCondition>
+			Key = C1
+			<Entity>
+				Key = E1
+				Text = a confirmation button
+			</Entity>
+			<Value>
+				Text = available
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS1, AS2, AS3, AS16, AS19]
+		</SysCondition>
+		<SysCondition>
+			Key = C2
+			<Entity>
+				Key = E2
+				Text = the confirmation_yes
+			</Entity>
+			<Value>
+				Text = presses
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS1, AS2]
+		</SysCondition>
+		<SysCondition>
+			Key = C3
+			<Entity>
+				Key = E5
+				Text = the RCMTECHTERM_terminate_auto_control_button
+			</Entity>
+			<Value>
+				Text = presses
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS3]
+		</SysCondition>
+		<SysCondition>
+			Key = C4
+			<Entity>
+				Key = E7
+				Text = a pump
+			</Entity>
+			<Value>
+				Text = plugs
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS4]
+		</SysCondition>
+		<SysCondition>
+			Key = C5
+			<Entity>
+				Key = E8
+				Text = an infusate
+			</Entity>
+			<Value>
+				Text = ready
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS4]
+		</SysCondition>
+		<SysCondition>
+			Key = C6
+			<Entity>
+				Key = E9
+				Text = the occlusion line
+			</Entity>
+			<Value>
+				Text = clear
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS4]
+		</SysCondition>
+		<SysCondition>
+			Key = C7
+			<Entity>
+				Key = E11
+				Text = the RCMTECHTERM_air_ok_signal
+			</Entity>
+			<Value>
+				Text = low
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS5]
+		</SysCondition>
+		<SysCondition>
+			Key = C8
+			<Entity>
+				Key = E12
+				Text = the blood pressure
+			</Entity>
+			<Value>
+				Text = valid
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS6, AS10]
+		</SysCondition>
+		<SysCondition>
+			Key = C9
+			<Entity>
+				Key = E13
+				Text = the override_yes
+			</Entity>
+			<Value>
+				Text = presses
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS7, AS25]
+		</SysCondition>
+		<SysCondition>
+			Key = C30
+			<Entity>
+				Key = E37
+				Text = the alarm_reset_button
+			</Entity>
+			<Value>
+				Text = presses
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS28]
+		</SysCondition>
+		<SysCondition>
+			Key = C11
+			<Entity>
+				Key = E15
+				Text = the pulse wave
+			</Entity>
+			<Value>
+				Text = not#$@$#RCMVAL_corroborated
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS7, AS22]
+		</SysCondition>
+		<SysCondition>
+			Key = C10
+			<Entity>
+				Key = E14
+				Text = the arterial line
+			</Entity>
+			<Value>
+				Text = RCMVAL_corroborated
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS7, AS11]
+		</SysCondition>
+		<SysCondition>
+			Key = C13
+			<Entity>
+				Key = E14
+				Text = the arterial line
+			</Entity>
+			<Value>
+				Text = unavailable
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS10]
+		</SysCondition>
+		<SysCondition>
+			Key = C12
+			<Entity>
+				Key = E15
+				Text = the pulse wave
+			</Entity>
+			<Value>
+				Text = unavailable
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS10]
+		</SysCondition>
+		<SysCondition>
+			Key = C15
+			<Entity>
+				Key = E15
+				Text = the pulse wave
+			</Entity>
+			<Value>
+				Text = RCMVAL_corroborated
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS11, AS29]
+		</SysCondition>
+		<SysCondition>
+			Key = C14
+			<Entity>
+				Key = E19
+				Text = cuff
+			</Entity>
+			<Value>
+				Text = selects
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS10, AS14]
+		</SysCondition>
+		<SysCondition>
+			Key = C17
+			<Entity>
+				Key = E21
+				Text = RCMTECHTERM_auto_control_mode
+			</Entity>
+			<Value>
+				Text = runs
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS12]
+		</SysCondition>
+		<SysCondition>
+			Key = C16
+			<Entity>
+				Key = E18
+				Text = the cuff
+			</Entity>
+			<Value>
+				Text = available
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS11, AS18, AS22, AS27, AS29]
+		</SysCondition>
+		<SysCondition>
+			Key = C19
+			<Entity>
+				Key = E4
+				Text = the manual mode
+			</Entity>
+			<Value>
+				Text = runs
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS13]
+		</SysCondition>
+		<SysCondition>
+			Key = C18
+			<Entity>
+				Key = E22
+				Text = the RCMTECHTERM_impedance_reading
+			</Entity>
+			<Value>
+				Text = unavailable
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS12]
+		</SysCondition>
+	</SystemConditions>
+	<SystemActions>
+		<SysAction>
+			Key = A21
+			<Entity>
+				Key = E18
+				Text = the cuff
+			</Entity>
+			<Value>
+				Text = selects
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS22]
+		</SysAction>
+		<SysAction>
+			Key = A22
+			<Entity>
+				Key = E34
+				Text = the next arterial line
+			</Entity>
+			<Value>
+				Text = selects
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS25]
+		</SysAction>
+		<SysAction>
+			Key = A23
+			<Entity>
+				Key = E36
+				Text = the cara
+			</Entity>
+			<Value>
+				Text = operational
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS26]
+		</SysAction>
+		<SysAction>
+			Key = A24
+			<Entity>
+				Key = E28
+				Text = an alarm
+			</Entity>
+			<Value>
+				Text = issues
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS27]
+		</SysAction>
+		<SysAction>
+			Key = A25
+			<Entity>
+				Key = E16
+				Text = the RCMTECHTERM_override_selection
+			</Entity>
+			<Value>
+				Text = provides
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS27]
+		</SysAction>
+		<SysAction>
+			Key = A26
+			<Entity>
+				Key = E38
+				Text = the alarm
+			</Entity>
+			<Value>
+				Text = disabled
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS28]
+		</SysAction>
+		<SysAction>
+			Key = A1
+			<Entity>
+				Key = E3
+				Text = the next confirmation_yes
+			</Entity>
+			<Value>
+				Text = disabled
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS1]
+		</SysAction>
+		<SysAction>
+			Key = A2
+			<Entity>
+				Key = E4
+				Text = the manual mode
+			</Entity>
+			<Value>
+				Text = starts
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS2]
+		</SysAction>
+		<SysAction>
+			Key = A3
+			<Entity>
+				Key = E6
+				Text = the next RCMTECHTERM_terminate_auto_control_button
+			</Entity>
+			<Value>
+				Text = disabled
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS3]
+		</SysAction>
+		<SysAction>
+			Key = A4
+			<Entity>
+				Key = E10
+				Text = the RCMTECHTERM_auto_control_mode
+			</Entity>
+			<Value>
+				Text = starts
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS4]
+		</SysAction>
+		<SysAction>
+			Key = A5
+			<Entity>
+				Key = E10
+				Text = the RCMTECHTERM_auto_control_mode
+			</Entity>
+			<Value>
+				Text = terminates
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS5, AS21]
+		</SysAction>
+		<SysAction>
+			Key = A6
+			<Entity>
+				Key = E4
+				Text = the manual mode
+			</Entity>
+			<Value>
+				Text = triggers
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS6]
+		</SysAction>
+		<SysAction>
+			Key = A7
+			<Entity>
+				Key = E17
+				Text = the next pulse wave
+			</Entity>
+			<Value>
+				Text = selects
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS7, AS29]
+		</SysAction>
+		<SysAction>
+			Key = A8
+			<Entity>
+				Key = E18
+				Text = the cuff
+			</Entity>
+			<Value>
+				Text = inflates
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS8]
+		</SysAction>
+		<SysAction>
+			Key = A9
+			<Entity>
+				Key = E5
+				Text = the RCMTECHTERM_terminate_auto_control_button
+			</Entity>
+			<Value>
+				Text = available
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS9]
+		</SysAction>
+		<SysAction>
+			Key = A10
+			<Entity>
+				Key = E20
+				Text = the next
+			</Entity>
+			<Value>
+				Text = starts
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS10]
+		</SysAction>
+		<SysAction>
+			Key = A11
+			<Entity>
+				Key = E14
+				Text = the arterial line
+			</Entity>
+			<Value>
+				Text = selects
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS11]
+		</SysAction>
+		<SysAction>
+			Key = A12
+			<Entity>
+				Key = E23
+				Text = the next RCMTERMl
+			</Entity>
+			<Value>
+				Text = terminates
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS12]
+		</SysAction>
+		<SysAction>
+			Key = A13
+			<Entity>
+				Key = E25
+				Text = the next corroboration
+			</Entity>
+			<Value>
+				Text = triggers
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS13]
+		</SysAction>
+		<SysAction>
+			Key = A14
+			<Entity>
+				Key = E26
+				Text = corroboration
+			</Entity>
+			<Value>
+				Text = triggers
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS14, AS23]
+		</SysAction>
+		<SysAction>
+			Key = A15
+			<Entity>
+				Key = E28
+				Text = an alarm
+			</Entity>
+			<Value>
+				Text = sounds
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS15]
+		</SysAction>
+		<SysAction>
+			Key = A16
+			<Entity>
+				Key = E10
+				Text = the RCMTECHTERM_auto_control_mode
+			</Entity>
+			<Value>
+				Text = runs
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS16]
+		</SysAction>
+		<SysAction>
+			Key = A17
+			<Entity>
+				Key = E1
+				Text = a confirmation button
+			</Entity>
+			<Value>
+				Text = available
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS17]
+		</SysAction>
+		<SysAction>
+			Key = A18
+			<Entity>
+				Key = E30
+				Text = the next manual mode
+			</Entity>
+			<Value>
+				Text = starts
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS18, AS24]
+		</SysAction>
+		<SysAction>
+			Key = A19
+			<Entity>
+				Key = E31
+				Text = the next confirmation_no
+			</Entity>
+			<Value>
+				Text = disabled
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS19]
+		</SysAction>
+		<SysAction>
+			Key = A20
+			<Entity>
+				Key = E24
+				Text = the RCMTECHTERM_start_auto_control_button
+			</Entity>
+			<Value>
+				Text = enables
+				Type = InternalValue
+				SourceEntity = null
+			</Value>
+			Relation is "be"
+			Operator is "="
+			Action-Sources = [AS20]
+		</SysAction>
+	</SystemActions>
+	<SystemEntities>
+		<SysEntity>
+			Key = E20
+			Text = the next
+			<Values>
+				v[1] = starts
+				v[1].SystemAction = A10
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E22
+			Text = the RCMTECHTERM_impedance_reading
+			<Values>
+				v[1] = unavailable
+				v[1].SystemAction = null
+				v[1].SystemCondition = C18
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E21
+			Text = RCMTECHTERM_auto_control_mode
+			<Values>
+				v[1] = runs
+				v[1].SystemAction = null
+				v[1].SystemCondition = C17
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E24
+			Text = the RCMTECHTERM_start_auto_control_button
+			<Values>
+				v[1] = presses
+				v[1].SystemAction = null
+				v[1].SystemCondition = C20
+				v[1].SystemTrigger = null
+				v[2] = enables
+				v[2].SystemAction = A20
+				v[2].SystemCondition = null
+				v[2].SystemTrigger = T4
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E23
+			Text = the next RCMTERMl
+			<Values>
+				v[1] = terminates
+				v[1].SystemAction = A12
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E26
+			Text = corroboration
+			<Values>
+				v[1] = triggers
+				v[1].SystemAction = A14
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E25
+			Text = the next corroboration
+			<Values>
+				v[1] = triggers
+				v[1].SystemAction = A13
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E28
+			Text = an alarm
+			<Values>
+				v[1] = sounds
+				v[1].SystemAction = A15
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+				v[2] = issues
+				v[2].SystemAction = A24
+				v[2].SystemCondition = null
+				v[2].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E27
+			Text = the pulse wave cuff
+			<Values>
+				v[1] = loses
+				v[1].SystemAction = null
+				v[1].SystemCondition = C24
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E1
+			Text = a confirmation button
+			<Values>
+				v[1] = available
+				v[1].SystemAction = A17
+				v[1].SystemCondition = C1
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E2
+			Text = the confirmation_yes
+			<Values>
+				v[1] = presses
+				v[1].SystemAction = null
+				v[1].SystemCondition = C2
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E29
+			Text = the confirmation_no
+			<Values>
+				v[1] = presses
+				v[1].SystemAction = null
+				v[1].SystemCondition = C25
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E3
+			Text = the next confirmation_yes
+			<Values>
+				v[1] = disabled
+				v[1].SystemAction = A1
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E4
+			Text = the manual mode
+			<Values>
+				v[1] = starts
+				v[1].SystemAction = A2
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+				v[2] = triggers
+				v[2].SystemAction = A6
+				v[2].SystemCondition = null
+				v[2].SystemTrigger = null
+				v[3] = runs
+				v[3].SystemAction = null
+				v[3].SystemCondition = C19
+				v[3].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E5
+			Text = the RCMTECHTERM_terminate_auto_control_button
+			<Values>
+				v[1] = selects
+				v[1].SystemAction = null
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = T3
+				v[2] = presses
+				v[2].SystemAction = null
+				v[2].SystemCondition = C3
+				v[2].SystemTrigger = null
+				v[3] = available
+				v[3].SystemAction = A9
+				v[3].SystemCondition = null
+				v[3].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E6
+			Text = the next RCMTECHTERM_terminate_auto_control_button
+			<Values>
+				v[1] = disabled
+				v[1].SystemAction = A3
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E7
+			Text = a pump
+			<Values>
+				v[1] = plugs
+				v[1].SystemAction = null
+				v[1].SystemCondition = C4
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E8
+			Text = an infusate
+			<Values>
+				v[1] = ready
+				v[1].SystemAction = null
+				v[1].SystemCondition = C5
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E9
+			Text = the occlusion line
+			<Values>
+				v[1] = clear
+				v[1].SystemAction = null
+				v[1].SystemCondition = C6
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E31
+			Text = the next confirmation_no
+			<Values>
+				v[1] = disabled
+				v[1].SystemAction = A19
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E30
+			Text = the next manual mode
+			<Values>
+				v[1] = starts
+				v[1].SystemAction = A18
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E11
+			Text = the RCMTECHTERM_air_ok_signal
+			<Values>
+				v[1] = low
+				v[1].SystemAction = null
+				v[1].SystemCondition = C7
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E33
+			Text = the override_no
+			<Values>
+				v[1] = presses
+				v[1].SystemAction = null
+				v[1].SystemCondition = C29
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E10
+			Text = the RCMTECHTERM_auto_control_mode
+			<Values>
+				v[1] = starts
+				v[1].SystemAction = A4
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+				v[2] = runs
+				v[2].SystemAction = A16
+				v[2].SystemCondition = C23
+				v[2].SystemTrigger = T2
+				v[3] = terminates
+				v[3].SystemAction = A5
+				v[3].SystemCondition = null
+				v[3].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E32
+			Text = an occlusion
+			<Values>
+				v[1] = detects
+				v[1].SystemAction = null
+				v[1].SystemCondition = C26
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E13
+			Text = the override_yes
+			<Values>
+				v[1] = presses
+				v[1].SystemAction = null
+				v[1].SystemCondition = C9
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E35
+			Text = the RCMVAR_lstat
+			<Values>
+				v[1] = RCMVAL_poweredon
+				v[1].SystemAction = null
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = T5
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E12
+			Text = the blood pressure
+			<Values>
+				v[1] = valid
+				v[1].SystemAction = null
+				v[1].SystemCondition = C8
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E34
+			Text = the next arterial line
+			<Values>
+				v[1] = selects
+				v[1].SystemAction = A22
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E15
+			Text = the pulse wave
+			<Values>
+				v[1] = selects
+				v[1].SystemAction = null
+				v[1].SystemCondition = C28
+				v[1].SystemTrigger = null
+				v[2] = unavailable
+				v[2].SystemAction = null
+				v[2].SystemCondition = C12
+				v[2].SystemTrigger = null
+				v[3] = available
+				v[3].SystemAction = null
+				v[3].SystemCondition = C21
+				v[3].SystemTrigger = null
+				v[4] = not#$@$#RCMVAL_corroborated
+				v[4].SystemAction = null
+				v[4].SystemCondition = C11
+				v[4].SystemTrigger = null
+				v[5] = RCMVAL_corroborated
+				v[5].SystemAction = null
+				v[5].SystemCondition = C15
+				v[5].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E37
+			Text = the alarm_reset_button
+			<Values>
+				v[1] = presses
+				v[1].SystemAction = null
+				v[1].SystemCondition = C30
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E14
+			Text = the arterial line
+			<Values>
+				v[1] = selects
+				v[1].SystemAction = A11
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+				v[2] = unavailable
+				v[2].SystemAction = null
+				v[2].SystemCondition = C13
+				v[2].SystemTrigger = null
+				v[3] = available
+				v[3].SystemAction = null
+				v[3].SystemCondition = C22
+				v[3].SystemTrigger = null
+				v[4] = RCMVAL_corroborated
+				v[4].SystemAction = null
+				v[4].SystemCondition = C10
+				v[4].SystemTrigger = null
+				v[5] = not#$@$#RCMVAL_corroborated
+				v[5].SystemAction = null
+				v[5].SystemCondition = C27
+				v[5].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E36
+			Text = the cara
+			<Values>
+				v[1] = operational
+				v[1].SystemAction = A23
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E17
+			Text = the next pulse wave
+			<Values>
+				v[1] = selects
+				v[1].SystemAction = A7
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E16
+			Text = the RCMTECHTERM_override_selection
+			<Values>
+				v[1] = provides
+				v[1].SystemAction = A25
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = T1
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E38
+			Text = the alarm
+			<Values>
+				v[1] = disabled
+				v[1].SystemAction = A26
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E19
+			Text = cuff
+			<Values>
+				v[1] = selects
+				v[1].SystemAction = null
+				v[1].SystemCondition = C14
+				v[1].SystemTrigger = null
+			</Values>
+		</SysEntity>
+		<SysEntity>
+			Key = E18
+			Text = the cuff
+			<Values>
+				v[1] = selects
+				v[1].SystemAction = A21
+				v[1].SystemCondition = null
+				v[1].SystemTrigger = null
+				v[2] = available
+				v[2].SystemAction = null
+				v[2].SystemCondition = C16
+				v[2].SystemTrigger = null
+				v[3] = inflates
+				v[3].SystemAction = A8
+				v[3].SystemCondition = null
+				v[3].SystemTrigger = null
+			</Values>
+		</SysEntity>
+	</SystemEntities>
+File Measures: 
+	Number of req in file = 0
+	Number of prim req in file = 29
+<FailedRequirement>
+</FailedRequirement>
+<SucceededRequirement>
+	<Requirement>
+		ID: [req_48c4:]
+		text:  if a confirmation button is available, and the confirmation_yes is pressed, the next confirmation_yes is disabled.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if a confirmation button is available, and the confirmation_yes is pressed, the next confirmation_yes is disabled.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((a confirmation button = available) AND (the confirmation_yes = presses))] ==> [(the next confirmation_yes = disabled)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if a confirmation button is available
+					[2]: if the confirmation_yes is pressed
+					[3]: the next confirmation_yes is disabled
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if a confirmation button is available
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the confirmation_yes is pressed
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the next confirmation_yes is disabled
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if a confirmation button is available
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: a confirmation button
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: available
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the confirmation_yes is pressed
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the confirmation_yes
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: presses
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the next confirmation_yes is disabled
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next confirmation_yes
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: disabled
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_48c2:]
+		text:  if a confirmation button is available, and the confirmation_yes is pressed, the manual mode is started.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if a confirmation button is available, and the confirmation_yes is pressed, the manual mode is started.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((a confirmation button = available) AND (the confirmation_yes = presses))] ==> [(the manual mode = starts)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if a confirmation button is available
+					[2]: if the confirmation_yes is pressed
+					[3]: the manual mode is started
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if a confirmation button is available
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the confirmation_yes is pressed
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the manual mode is started
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if a confirmation button is available
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: a confirmation button
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: available
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the confirmation_yes is pressed
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the confirmation_yes
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: presses
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the manual mode is started
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the manual mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: starts
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_48c6:]
+		text:  if a confirmation button is available and the RCMTECHTERM_terminate_auto_control_button is pressed, the next RCMTECHTERM_terminate_auto_control_button is disabled.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if a confirmation button is available and the RCMTECHTERM_terminate_auto_control_button is pressed, the next RCMTECHTERM_terminate_auto_control_button is disabled.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((a confirmation button = available) AND (the RCMTECHTERM_terminate_auto_control_button = presses))] ==> [(the next RCMTECHTERM_terminate_auto_control_button = disabled)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if a confirmation button is available
+					[2]: if the RCMTECHTERM_terminate_auto_control_button is pressed
+					[3]: the next RCMTECHTERM_terminate_auto_control_button is disabled
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if a confirmation button is available
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the RCMTECHTERM_terminate_auto_control_button is pressed
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the next RCMTECHTERM_terminate_auto_control_button is disabled
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if a confirmation button is available
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: a confirmation button
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: available
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the RCMTECHTERM_terminate_auto_control_button is pressed
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the RCMTECHTERM_terminate_auto_control_button
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: presses
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the next RCMTECHTERM_terminate_auto_control_button is disabled
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next RCMTECHTERM_terminate_auto_control_button
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: disabled
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_16:]
+		text:  if a pump is plugged in, and an infusate is ready, and the occlusion line is clear, the RCMTECHTERM_auto_control_mode can be started.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if a pump is plugged in, and an infusate is ready, and the occlusion line is clear, the RCMTECHTERM_auto_control_mode can be started.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND ((Q) AND (R)))] ==> [(S)] )
+					MTL-Formula: G( [((a pump = plugs) AND ((an infusate = ready) AND (the occlusion line = clear)))] ==> [(the RCMTECHTERM_auto_control_mode = starts)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if a pump is plugged in
+					[2]: if an infusate is ready
+					[3]: if the occlusion line is clear
+					[4]: the RCMTECHTERM_auto_control_mode can be started
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if a pump is plugged in
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if an infusate is ready
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the occlusion line is clear
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the RCMTECHTERM_auto_control_mode can be started
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if a pump is plugged in
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: a pump
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: plugs
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<LogicalRelation>
+							relation: AND
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if an infusate is ready
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: an infusate
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: ready
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the occlusion line is clear
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the occlusion line
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: clear
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+					<Action>
+						Text = the RCMTECHTERM_auto_control_mode can be started
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_auto_control_mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: starts
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_08:]
+		text:  if the RCMTECHTERM_air_ok_signal is low, the RCMTECHTERM_auto_control_mode is terminated within 3 sec.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the RCMTECHTERM_air_ok_signal is low, the RCMTECHTERM_auto_control_mode is terminated within 3 sec.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(F{tNONE3}(Q))] )
+					MTL-Formula: G( [(the RCMTECHTERM_air_ok_signal = low)] ==> [(F{tNONE3}(the RCMTECHTERM_auto_control_mode = terminates))] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the RCMTECHTERM_air_ok_signal is low
+					[2]: the RCMTECHTERM_auto_control_mode is terminated within 3 sec
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the RCMTECHTERM_air_ok_signal is low
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the RCMTECHTERM_auto_control_mode is terminated
+						SlotType= TimeScope|| Text= within 3 sec
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the RCMTECHTERM_air_ok_signal is low
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_air_ok_signal
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: low
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the RCMTECHTERM_auto_control_mode is terminated
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_auto_control_mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: terminates
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+						<PreElapsedTime>
+							TimeType: PreElapsed
+							Value: 3
+							Unit: sec
+							QPRelation: 
+						<FormalSemantic>
+							TechnicalOperator: NONE
+							Value: 3
+							</FormalSemantic>
+						<PreElapsedTime>
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_28:]
+		text:  if the blood pressure is not valid after at least 180 sec, the manual mode should be triggered.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the blood pressure is not valid after at least 180 sec, the manual mode should be triggered.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(F{t>=180}(¬P))] ==> [(Q)] )
+					MTL-Formula: G( [(F{t>=180}(¬the blood pressure = valid))] ==> [(the manual mode = triggers)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the blood pressure is not valid after at least 180 sec
+					[2]: the manual mode should be triggered
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the blood pressure is not valid
+						SlotType= TimeScope|| Text= after at least 180 sec
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the manual mode should be triggered
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the blood pressure is not valid
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the blood pressure
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: valid
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: true
+						<PreElapsedTime>
+							TimeType: PreElapsed
+							Value: 180
+							Unit: sec
+							QPRelation: at least 
+						<FormalSemantic>
+							TechnicalOperator: >=
+							Value: 180
+							</FormalSemantic>
+						<PreElapsedTime>
+					</Condition>
+					<Action>
+						Text = the manual mode should be triggered
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the manual mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: triggers
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_17c5:]
+		text:  when the RCMTECHTERM_override_selection is provided, if the override_yes is pressed, and the arterial line is RCMVAL_corroborated, and the pulse wave is not RCMVAL_corroborated, the next pulse wave is selected.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  when the RCMTECHTERM_override_selection is provided, if the override_yes is pressed, and the arterial line is RCMVAL_corroborated, and the pulse wave is not RCMVAL_corroborated, the next pulse wave is selected.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [([(P)] ==> [((Q) AND ((R) AND (S)))])] ==> [(T)] )
+					MTL-Formula: G( [([(the RCMTECHTERM_override_selection = provides)] ==> [((the override_yes = presses) AND ((the arterial line = RCMVAL_corroborated) AND (the pulse wave = not#$@$#RCMVAL_corroborated)))])] ==> [(the next pulse wave = selects)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: when the RCMTECHTERM_override_selection is provided
+					[2]: if the override_yes is pressed
+					[3]: if the arterial line is RCMVAL_corroborated
+					[4]: if the pulse wave is not RCMVAL_corroborated
+					[5]: the next pulse wave is selected
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: trig 
+						SlotType= MainSlot|| Text= when the RCMTECHTERM_override_selection is provided
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the override_yes is pressed
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the arterial line is RCMVAL_corroborated
+					C[4]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the pulse wave is not RCMVAL_corroborated
+					C[5]==>	Type: act 
+						SlotType= MainSlot|| Text= the next pulse wave is selected
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the override_yes is pressed
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the override_yes
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: presses
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<LogicalRelation>
+							relation: AND
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if the arterial line is RCMVAL_corroborated
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the arterial line
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: RCMVAL_corroborated
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the pulse wave is not RCMVAL_corroborated
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the pulse wave
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: not#$@$#RCMVAL_corroborated
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+					<Trigger>
+						Keyword: when
+						Text = when the RCMTECHTERM_override_selection is provided
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_override_selection
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: provides
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Trigger>
+					<Action>
+						Text = the next pulse wave is selected
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next pulse wave
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: selects
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_17c1:]
+		text:  when the RCMTECHTERM_auto_control_mode is running, the cuff will be inflated.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  when the RCMTECHTERM_auto_control_mode is running, the cuff will be inflated.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the RCMTECHTERM_auto_control_mode = runs)] ==> [(the cuff = inflates)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: when the RCMTECHTERM_auto_control_mode is running
+					[2]: the cuff will be inflated
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: trig 
+						SlotType= MainSlot|| Text= when the RCMTECHTERM_auto_control_mode is running
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the cuff will be inflated
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Trigger>
+						Keyword: when
+						Text = when the RCMTECHTERM_auto_control_mode is running
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_auto_control_mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: runs
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Trigger>
+					<Action>
+						Text = the cuff will be inflated
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the cuff
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: inflates
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_34:]
+		text:  when the RCMTECHTERM_auto_control_mode is running, the RCMTECHTERM_terminate_auto_control_button should be available.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  when the RCMTECHTERM_auto_control_mode is running, the RCMTECHTERM_terminate_auto_control_button should be available.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the RCMTECHTERM_auto_control_mode = runs)] ==> [(the RCMTECHTERM_terminate_auto_control_button = available)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: when the RCMTECHTERM_auto_control_mode is running
+					[2]: the RCMTECHTERM_terminate_auto_control_button should be available
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: trig 
+						SlotType= MainSlot|| Text= when the RCMTECHTERM_auto_control_mode is running
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the RCMTECHTERM_terminate_auto_control_button should be available
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Trigger>
+						Keyword: when
+						Text = when the RCMTECHTERM_auto_control_mode is running
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_auto_control_mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: runs
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Trigger>
+					<Action>
+						Text = the RCMTECHTERM_terminate_auto_control_button should be available
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_terminate_auto_control_button
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: available
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:should be
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_44:]
+		text:  if the pulse wave and the arterial line are unavailable, and cuff is selected, and the blood pressure is not valid, the next the manual mode is started.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the pulse wave and the arterial line are unavailable, and cuff is selected, and the blood pressure is not valid, the next the manual mode is started.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(((P) AND (Q)) AND ((R) AND (¬S)))] ==> [(T)] )
+					MTL-Formula: G( [(((the pulse wave = unavailable) AND (the arterial line = unavailable)) AND ((cuff = selects) AND (¬the blood pressure = valid)))] ==> [(the next = starts)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the pulse wave are unavailable
+					[2]: if the arterial line are unavailable
+					[3]: if cuff is selected
+					[4]: if the blood pressure is not valid
+					[5]: the next is started
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the pulse wave are unavailable
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the arterial line are unavailable
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if cuff is selected
+					C[4]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the blood pressure is not valid
+					C[5]==>	Type: act 
+						SlotType= MainSlot|| Text= the next is started
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<LogicalRelation>
+							relation: AND
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if the pulse wave are unavailable
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the pulse wave
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: unavailable
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:are
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the arterial line are unavailable
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the arterial line
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: unavailable
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:are
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+						<LogicalRelation>
+							relation: AND
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if cuff is selected
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: cuff
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: selects
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the blood pressure is not valid
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the blood pressure
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: valid
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: true
+							</Condition>
+					<Action>
+						Text = the next is started
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: starts
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_13c1:]
+		text:  if the arterial line and the pulse wave are RCMVAL_corroborated, and the cuff is available, the arterial line is selected.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the arterial line and the pulse wave are RCMVAL_corroborated, and the cuff is available, the arterial line is selected.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(((P) AND (Q)) AND (R))] ==> [(S)] )
+					MTL-Formula: G( [(((the arterial line = RCMVAL_corroborated) AND (the pulse wave = RCMVAL_corroborated)) AND (the cuff = available))] ==> [(the arterial line = selects)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the arterial line are RCMVAL_corroborated
+					[2]: if the pulse wave are RCMVAL_corroborated
+					[3]: if the cuff is available
+					[4]: the arterial line is selected
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the arterial line are RCMVAL_corroborated
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the pulse wave are RCMVAL_corroborated
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the cuff is available
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the arterial line is selected
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<LogicalRelation>
+							relation: AND
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if the arterial line are RCMVAL_corroborated
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the arterial line
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: RCMVAL_corroborated
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:are
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the pulse wave are RCMVAL_corroborated
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the pulse wave
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: RCMVAL_corroborated
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:are
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the cuff is available
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the cuff
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: available
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the arterial line is selected
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the arterial line
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: selects
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_54:]
+		text:  if RCMTECHTERM_auto_control_mode is running, and the RCMTECHTERM_impedance_reading is unavailable, the next RCMTECHTERM_auto_control_model is terminated.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if RCMTECHTERM_auto_control_mode is running, and the RCMTECHTERM_impedance_reading is unavailable, the next RCMTECHTERM_auto_control_model is terminated.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((RCMTECHTERM_auto_control_mode = runs) AND (the RCMTECHTERM_impedance_reading = unavailable))] ==> [(the next RCMTERMl = terminates)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if RCMTECHTERM_auto_control_mode is running
+					[2]: if the RCMTECHTERM_impedance_reading is unavailable
+					[3]: the next RCMTERMl is terminated
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if RCMTECHTERM_auto_control_mode is running
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the RCMTECHTERM_impedance_reading is unavailable
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the next RCMTERMl is terminated
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if RCMTECHTERM_auto_control_mode is running
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: RCMTECHTERM_auto_control_mode
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: runs
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the RCMTECHTERM_impedance_reading is unavailable
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the RCMTECHTERM_impedance_reading
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: unavailable
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the next RCMTERMl is terminated
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next RCMTERMl
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: terminates
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_20:]
+		text:  if the manual mode is running and the RCMTECHTERM_start_auto_control_button is pressed, the next corroboration is triggered.
+
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the manual mode is running and the RCMTECHTERM_start_auto_control_button is pressed, the next corroboration is triggered.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((the manual mode = runs) AND (the RCMTECHTERM_start_auto_control_button = presses))] ==> [(the next corroboration = triggers)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the manual mode is running
+					[2]: if the RCMTECHTERM_start_auto_control_button is pressed
+					[3]: the next corroboration is triggered
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the manual mode is running
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the RCMTECHTERM_start_auto_control_button is pressed
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the next corroboration is triggered
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the manual mode is running
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the manual mode
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: runs
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the RCMTECHTERM_start_auto_control_button is pressed
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the RCMTECHTERM_start_auto_control_button
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: presses
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the next corroboration is triggered
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next corroboration
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: triggers
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_32c1:]
+		text:  if the pulse wave or the arterial line is available, and cuff is selected, corroboration is triggered.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the pulse wave or the arterial line is available, and cuff is selected, corroboration is triggered.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(((P) OR (Q)) AND (R))] ==> [(S)] )
+					MTL-Formula: G( [(((the pulse wave = available) OR (the arterial line = available)) AND (cuff = selects))] ==> [(corroboration = triggers)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the pulse wave is available
+					[2]: if the arterial line is available
+					[3]: if cuff is selected
+					[4]: corroboration is triggered
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the pulse wave is available
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the arterial line is available
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if cuff is selected
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= corroboration is triggered
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<LogicalRelation>
+							relation: OR
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if the pulse wave is available
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the pulse wave
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: available
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the arterial line is available
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the arterial line
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: available
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+						<Condition>
+							Keyword: if
+							Text = if cuff is selected
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: cuff
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: selects
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = corroboration is triggered
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: corroboration
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: triggers
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_42:]
+		text:  if the RCMTECHTERM_auto_control_mode is running, and the arterial line or the pulse wave or cuff is lost, an alarm should sound in 60 seconds.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the RCMTECHTERM_auto_control_mode is running, and the arterial line or the pulse wave or cuff is lost, an alarm should sound in 60 seconds.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND ((Q) OR (R) OR (S)))] ==> [(F{tNONE60}(T))] )
+					MTL-Formula: G( [((the RCMTECHTERM_auto_control_mode = runs) AND ((the pulse wave cuff = loses) OR (the pulse wave cuff = loses) OR (the pulse wave cuff = loses)))] ==> [(F{tNONE60}(an alarm = sounds))] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the RCMTECHTERM_auto_control_mode is running
+					[2]: if the pulse wave cuff is lost
+					[3]: an alarm should sound in 60 seconds
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the RCMTECHTERM_auto_control_mode is running
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the pulse wave cuff is lost
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= an alarm should sound
+						SlotType= TimeScope|| Text= in 60 seconds
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the RCMTECHTERM_auto_control_mode is running
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the RCMTECHTERM_auto_control_mode
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: runs
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<LogicalRelation>
+							relation: OR
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if the pulse wave cuff is lost
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the pulse wave cuff
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: loses
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the pulse wave cuff is lost
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the pulse wave cuff
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: loses
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the pulse wave cuff is lost
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the pulse wave cuff
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: loses
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+					<Action>
+						Text = an alarm should sound
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: an alarm
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: sounds
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+						<PreElapsedTime>
+							TimeType: PreElapsed
+							Value: 60
+							Unit: seconds
+							QPRelation: 
+						<FormalSemantic>
+							TechnicalOperator: NONE
+							Value: 60
+							</FormalSemantic>
+						<PreElapsedTime>
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_48c3:]
+		text:  if a confirmation button is available, and the confirmation_no is pressed, the RCMTECHTERM_auto_control_mode is running.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if a confirmation button is available, and the confirmation_no is pressed, the RCMTECHTERM_auto_control_mode is running.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((a confirmation button = available) AND (the confirmation_no = presses))] ==> [(the RCMTECHTERM_auto_control_mode = runs)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if a confirmation button is available
+					[2]: if the confirmation_no is pressed
+					[3]: the RCMTECHTERM_auto_control_mode is running
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if a confirmation button is available
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the confirmation_no is pressed
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the RCMTECHTERM_auto_control_mode is running
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if a confirmation button is available
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: a confirmation button
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: available
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the confirmation_no is pressed
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the confirmation_no
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: presses
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the RCMTECHTERM_auto_control_mode is running
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_auto_control_mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: runs
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_48c1:]
+		text:  when the RCMTECHTERM_terminate_auto_control_button is selected, a confirmation button is available.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  when the RCMTECHTERM_terminate_auto_control_button is selected, a confirmation button is available.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the RCMTECHTERM_terminate_auto_control_button = selects)] ==> [(a confirmation button = available)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: when the RCMTECHTERM_terminate_auto_control_button is selected
+					[2]: a confirmation button is available
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: trig 
+						SlotType= MainSlot|| Text= when the RCMTECHTERM_terminate_auto_control_button is selected
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= a confirmation button is available
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Trigger>
+						Keyword: when
+						Text = when the RCMTECHTERM_terminate_auto_control_button is selected
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_terminate_auto_control_button
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: selects
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Trigger>
+					<Action>
+						Text = a confirmation button is available
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: a confirmation button
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: available
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_17c7:]
+		text:  if the cuff and the arterial line and the pulse wave are not available, the next manual mode is started.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the cuff and the arterial line and the pulse wave are not available, the next manual mode is started.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((¬P) AND (¬Q))] ==> [(R)] )
+					MTL-Formula: G( [((¬the cuff = available) AND (¬the arterial line = available))] ==> [(the next manual mode = starts)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the cuff are not available
+					[2]: if the arterial line are not available
+					[3]: the next manual mode is started
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the cuff are not available
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the arterial line are not available
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the next manual mode is started
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the cuff are not available
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the cuff
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: available
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:are
+							</Operator>
+							Has valid-time:  false
+							Is negatted: true
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the arterial line are not available
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the arterial line
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: available
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:are
+							</Operator>
+							Has valid-time:  false
+							Is negatted: true
+						</Condition>
+					<Action>
+						Text = the next manual mode is started
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next manual mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: starts
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_48c5:]
+		text:  if a confirmation button is available, and the confirmation_no is pressed, the next confirmation_no is disabled.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if a confirmation button is available, and the confirmation_no is pressed, the next confirmation_no is disabled.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((a confirmation button = available) AND (the confirmation_no = presses))] ==> [(the next confirmation_no = disabled)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if a confirmation button is available
+					[2]: if the confirmation_no is pressed
+					[3]: the next confirmation_no is disabled
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if a confirmation button is available
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the confirmation_no is pressed
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the next confirmation_no is disabled
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if a confirmation button is available
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: a confirmation button
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: available
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the confirmation_no is pressed
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the confirmation_no
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: presses
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the next confirmation_no is disabled
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next confirmation_no
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: disabled
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_49:]
+		text:  when the RCMTECHTERM_start_auto_control_button is enabled, the RCMTECHTERM_start_auto_control_button is enabled before it is pressed.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  when the RCMTECHTERM_start_auto_control_button is enabled, the RCMTECHTERM_start_auto_control_button is enabled before it is pressed.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [F(R) ==> (F((Q) || (R) ) U (R))] )
+					MTL-Formula: G( [(the RCMTECHTERM_start_auto_control_button = enables)] ==> [F(it = presses) ==> (F((the RCMTECHTERM_start_auto_control_button = enables) || (it = presses) ) U (it = presses))] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: when the RCMTECHTERM_start_auto_control_button is enabled
+					[2]: the RCMTECHTERM_start_auto_control_button is enabled
+					[3]: before it is pressed
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: trig 
+						SlotType= MainSlot|| Text= when the RCMTECHTERM_start_auto_control_button is enabled
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the RCMTECHTERM_start_auto_control_button is enabled
+					C[3]==>	Type: actScope 
+						SlotType= ConditionalScope|| Text= before it is pressed
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Trigger>
+						Keyword: when
+						Text = when the RCMTECHTERM_start_auto_control_button is enabled
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_start_auto_control_button
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: enables
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Trigger>
+					<Action>
+						Text = the RCMTECHTERM_start_auto_control_button is enabled
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_start_auto_control_button
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: enables
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+						<ActionScope>
+							<ConditionalScope>
+								scope phase: EndUpPhase
+								<Condition>
+									Keyword: null
+									Text = before it is pressed
+									<Operands>
+										Arg[0]
+										<ArgDetails>
+											Text: it
+										</ArgDetails>
+										Arg[1]
+										<ArgDetails>
+											Text: presses
+										</ArgDetails>
+									</Operands>
+									<Operator>
+										relation:is
+									</Operator>
+									Has valid-time:  false
+									Is negatted: false
+								</Condition>
+							</ConditionalScope>
+						</ActionScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_07:]
+		text:  if an occlusion is detected, and the RCMTECHTERM_auto_control_mode is running, the RCMTECHTERM_auto_control_mode will be terminated.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if an occlusion is detected, and the RCMTECHTERM_auto_control_mode is running, the RCMTECHTERM_auto_control_mode will be terminated.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((an occlusion = detects) AND (the RCMTECHTERM_auto_control_mode = runs))] ==> [(the RCMTECHTERM_auto_control_mode = terminates)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if an occlusion is detected
+					[2]: if the RCMTECHTERM_auto_control_mode is running
+					[3]: the RCMTECHTERM_auto_control_mode will be terminated
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if an occlusion is detected
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the RCMTECHTERM_auto_control_mode is running
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the RCMTECHTERM_auto_control_mode will be terminated
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if an occlusion is detected
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: an occlusion
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: detects
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the RCMTECHTERM_auto_control_mode is running
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the RCMTECHTERM_auto_control_mode
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: runs
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = the RCMTECHTERM_auto_control_mode will be terminated
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_auto_control_mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: terminates
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [r_13c3:]
+		text:  if the arterial line is not RCMVAL_corroborated, and the pulse wave is not RCMVAL_corroborated, and the cuff is available, the cuff is selected.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the arterial line is not RCMVAL_corroborated, and the pulse wave is not RCMVAL_corroborated, and the cuff is available, the cuff is selected.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND ((Q) AND (R)))] ==> [(S)] )
+					MTL-Formula: G( [((the arterial line = not#$@$#RCMVAL_corroborated) AND ((the pulse wave = not#$@$#RCMVAL_corroborated) AND (the cuff = available)))] ==> [(the cuff = selects)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the arterial line is not RCMVAL_corroborated
+					[2]: if the pulse wave is not RCMVAL_corroborated
+					[3]: if the cuff is available
+					[4]: the cuff is selected
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the arterial line is not RCMVAL_corroborated
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the pulse wave is not RCMVAL_corroborated
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the cuff is available
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the cuff is selected
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the arterial line is not RCMVAL_corroborated
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the arterial line
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: not#$@$#RCMVAL_corroborated
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<LogicalRelation>
+							relation: AND
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if the pulse wave is not RCMVAL_corroborated
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the pulse wave
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: not#$@$#RCMVAL_corroborated
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the cuff is available
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the cuff
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: available
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+					<Action>
+						Text = the cuff is selected
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the cuff
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: selects
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_32c2:]
+		text:  if the pulse wave is selected, and the arterial line is available, corroboration is triggered.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the pulse wave is selected, and the arterial line is available, corroboration is triggered.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (Q))] ==> [(R)] )
+					MTL-Formula: G( [((the pulse wave = selects) AND (the arterial line = available))] ==> [(corroboration = triggers)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the pulse wave is selected
+					[2]: if the arterial line is available
+					[3]: corroboration is triggered
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the pulse wave is selected
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the arterial line is available
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= corroboration is triggered
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the pulse wave is selected
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the pulse wave
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: selects
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the arterial line is available
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the arterial line
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: available
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Action>
+						Text = corroboration is triggered
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: corroboration
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: triggers
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_17c6:]
+		text:  when the RCMTECHTERM_override_selection is provided, if the override_no is pressed, the next manual mode is started.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  when the RCMTECHTERM_override_selection is provided, if the override_no is pressed, the next manual mode is started.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [([(P)] ==> [(Q)])] ==> [(R)] )
+					MTL-Formula: G( [([(the RCMTECHTERM_override_selection = provides)] ==> [(the override_no = presses)])] ==> [(the next manual mode = starts)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: when the RCMTECHTERM_override_selection is provided
+					[2]: if the override_no is pressed
+					[3]: the next manual mode is started
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: trig 
+						SlotType= MainSlot|| Text= when the RCMTECHTERM_override_selection is provided
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the override_no is pressed
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= the next manual mode is started
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the override_no is pressed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the override_no
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: presses
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Trigger>
+						Keyword: when
+						Text = when the RCMTECHTERM_override_selection is provided
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_override_selection
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: provides
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Trigger>
+					<Action>
+						Text = the next manual mode is started
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next manual mode
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: starts
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_17c4:]
+		text:  when the RCMTECHTERM_override_selection is provided, if the override_yes is pressed, and the arterial line is not RCMVAL_corroborated, the next arterial line is selected.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  when the RCMTECHTERM_override_selection is provided, if the override_yes is pressed, and the arterial line is not RCMVAL_corroborated, the next arterial line is selected.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [([(P)] ==> [((Q) AND (R))])] ==> [(S)] )
+					MTL-Formula: G( [([(the RCMTECHTERM_override_selection = provides)] ==> [((the override_yes = presses) AND (the arterial line = not#$@$#RCMVAL_corroborated))])] ==> [(the next arterial line = selects)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: when the RCMTECHTERM_override_selection is provided
+					[2]: if the override_yes is pressed
+					[3]: if the arterial line is not RCMVAL_corroborated
+					[4]: the next arterial line is selected
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: trig 
+						SlotType= MainSlot|| Text= when the RCMTECHTERM_override_selection is provided
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the override_yes is pressed
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the arterial line is not RCMVAL_corroborated
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the next arterial line is selected
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the override_yes is pressed
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the override_yes
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: presses
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the arterial line is not RCMVAL_corroborated
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the arterial line
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: not#$@$#RCMVAL_corroborated
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+					<Trigger>
+						Keyword: when
+						Text = when the RCMTECHTERM_override_selection is provided
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMTECHTERM_override_selection
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: provides
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Trigger>
+					<Action>
+						Text = the next arterial line is selected
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next arterial line
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: selects
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_01:]
+		text:  the cara will be operational when the RCMVAR_lstat is RCMVAL_poweredon.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  the cara will be operational when the RCMVAR_lstat is RCMVAL_poweredon.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the RCMVAR_lstat = RCMVAL_poweredon)] ==> [(the cara = operational)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: the cara will be operational
+					[2]: when the RCMVAR_lstat is RCMVAL_poweredon
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: act 
+						SlotType= MainSlot|| Text= the cara will be operational
+					C[2]==>	Type: trig 
+						SlotType= MainSlot|| Text= when the RCMVAR_lstat is RCMVAL_poweredon
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Trigger>
+						Keyword: when
+						Text = when the RCMVAR_lstat is RCMVAL_poweredon
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the RCMVAR_lstat
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: RCMVAL_poweredon
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Trigger>
+					<Action>
+						Text = the cara will be operational
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the cara
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: operational
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:will be
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_17c2:]
+		text:  if the RCMTECHTERM_start_auto_control_button is pressed, and the cuff is not available, an alarm is issued and the RCMTECHTERM_override_selection is provided.
+req_17c3: if the alarm_reset_button is pressed, the alarm is disabled.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the RCMTECHTERM_start_auto_control_button is pressed, and the cuff is not available, an alarm is issued and the RCMTECHTERM_override_selection is provided.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND (¬Q))] ==> [((R) AND (S))] )
+					MTL-Formula: G( [((the RCMTECHTERM_start_auto_control_button = presses) AND (¬the cuff = available))] ==> [((an alarm = issues) AND (the RCMTECHTERM_override_selection = provides))] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the RCMTECHTERM_start_auto_control_button is pressed
+					[2]: if the cuff is not available
+					[3]: an alarm is issued
+					[4]: the RCMTECHTERM_override_selection is provided
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the RCMTECHTERM_start_auto_control_button is pressed
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the cuff is not available
+					C[3]==>	Type: act 
+						SlotType= MainSlot|| Text= an alarm is issued
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the RCMTECHTERM_override_selection is provided
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the RCMTECHTERM_start_auto_control_button is pressed
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the RCMTECHTERM_start_auto_control_button
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: presses
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<Condition>
+							Keyword: if
+							Text = if the cuff is not available
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the cuff
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: available
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: true
+						</Condition>
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Action>
+							Text = an alarm is issued
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: an alarm
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: issues
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+							is repeated = false
+						</Action>
+						<Action>
+							Text = the RCMTECHTERM_override_selection is provided
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the RCMTECHTERM_override_selection
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: provides
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+							is repeated = false
+						</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+			<PR>
+				Id: [2]
+				text: req_17c3: if the alarm_reset_button is pressed, the alarm is disabled.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [(P)] ==> [(Q)] )
+					MTL-Formula: G( [(the alarm_reset_button = presses)] ==> [(the alarm = disabled)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the alarm_reset_button is pressed
+					[2]: the alarm is disabled
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the alarm_reset_button is pressed
+					C[2]==>	Type: act 
+						SlotType= MainSlot|| Text= the alarm is disabled
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<Condition>
+						Keyword: if
+						Text = if the alarm_reset_button is pressed
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the alarm_reset_button
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: presses
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+					</Condition>
+					<Action>
+						Text = the alarm is disabled
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the alarm
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: disabled
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+	<Requirement>
+		ID: [req_13c2:]
+		text:  if the pulse wave is RCMVAL_corroborated, and the cuff is available, and the arterial line is not RCMVAL_corroborated, the next pulse wave is selected.
+
+		<PrimitiveReq>
+			<PR>
+				Id: [1]
+				text:  if the pulse wave is RCMVAL_corroborated, and the cuff is available, and the arterial line is not RCMVAL_corroborated, the next pulse wave is selected.
+				<Formal-Representation>
+					MTL-AbbrevatedFormula: G( [((P) AND ((Q) AND (R)))] ==> [(S)] )
+					MTL-Formula: G( [((the pulse wave = RCMVAL_corroborated) AND ((the cuff = available) AND (the arterial line = not#$@$#RCMVAL_corroborated)))] ==> [(the next pulse wave = selects)] )
+				</Formal-Representation>
+				<ExtractedComponents>
+					[1]: if the pulse wave is RCMVAL_corroborated
+					[2]: if the cuff is available
+					[3]: if the arterial line is not RCMVAL_corroborated
+					[4]: the next pulse wave is selected
+				</ExtractedComponents>
+				<ClassifiedComponents>
+					C[1]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the pulse wave is RCMVAL_corroborated
+					C[2]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the cuff is available
+					C[3]==>	Type: cond 
+						SlotType= MainSlot|| Text= if the arterial line is not RCMVAL_corroborated
+					C[4]==>	Type: act 
+						SlotType= MainSlot|| Text= the next pulse wave is selected
+				</ClassifiedComponents>
+				<RCMDetails>
+					
+					<LogicalRelation>
+						relation: AND
+					</LogicalRelation>
+						<Condition>
+							Keyword: if
+							Text = if the pulse wave is RCMVAL_corroborated
+							<Operands>
+								Arg[0]
+								<ArgDetails>
+									Text: the pulse wave
+								</ArgDetails>
+								Arg[1]
+								<ArgDetails>
+									Text: RCMVAL_corroborated
+								</ArgDetails>
+							</Operands>
+							<Operator>
+								relation:is
+							</Operator>
+							Has valid-time:  false
+							Is negatted: false
+						</Condition>
+						<LogicalRelation>
+							relation: AND
+						</LogicalRelation>
+							<Condition>
+								Keyword: if
+								Text = if the cuff is available
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the cuff
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: available
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+							<Condition>
+								Keyword: if
+								Text = if the arterial line is not RCMVAL_corroborated
+								<Operands>
+									Arg[0]
+									<ArgDetails>
+										Text: the arterial line
+									</ArgDetails>
+									Arg[1]
+									<ArgDetails>
+										Text: not#$@$#RCMVAL_corroborated
+									</ArgDetails>
+								</Operands>
+								<Operator>
+									relation:is
+								</Operator>
+								Has valid-time:  false
+								Is negatted: false
+							</Condition>
+					<Action>
+						Text = the next pulse wave is selected
+						<Operands>
+							Arg[0]
+							<ArgDetails>
+								Text: the next pulse wave
+							</ArgDetails>
+							Arg[1]
+							<ArgDetails>
+								Text: selects
+							</ArgDetails>
+						</Operands>
+						<Operator>
+							relation:is
+						</Operator>
+						Has valid-time:  false
+						Is negatted: false
+						is repeated = false
+					</Action>
+					<RequirementScope>
+					</RequirementScope>
+				</RCMDetails>
+			</PR>
+		</PrimitiveReq>
+	</Requirement>
+
+</SucceededRequirement>
+</log>
