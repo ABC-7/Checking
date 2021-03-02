@@ -1,0 +1,34 @@
+Action Source Key: AS19
+	has Inconsistency issue with 'AS10' "fully-  contained preconditions and different actions"
+	has Inconsistency issue with 'AS7' "fully- contained preconditions and different actions"
+=================================
+Action Source Key: AS17
+	has Inconsistency issue with 'AS16' "identical preconditions and different actions"
+=================================
+Action Source Key: AS28
+	has Inconsistency issue with 'AS4' "fully-contained preconditions and different actions"
+=================================
+Action Source Key: AS15
+	has Inconsistency issue "DeadLock-- found Cycle AS15 AS23 AS15"
+=================================
+Action Source Key: AS27
+	has Inconsistency issue with 'AS15' "fully-contained preconditions and different actions"
+=================================
+Action Source Key: AS25
+	has Inconsistency issue with 'AS10' "fully-contained preconditions and different actions"
+=================================
+Action Source Key: AS33
+	has Inconsistency issue with 'AS1' "fully-contained preconditions and different actions"
+=================================
+Action Source Key: AS23
+	has Inconsistency issue with 'AS16' "identical preconditions and different actions"
+	has Inconsistency issue with 'AS17' "identical preconditions and different actions"
+	has Correctness issue "Infiniteloop-- found Cycle AS33 AS23 AS15 AS23"
+=================================
+Action Source Key: AS34. 
+	has Inconsistency issue with 'AS33' "fully-contained preconditions and different actions"
+	has Inconsistency issue with 'AS1' "identical preconditions and different actions"
+=================================
+Action Source Key: AS20
+	has Inconsistency issue with 'AS15' "fully-contained preconditions and different actions"
+=================================

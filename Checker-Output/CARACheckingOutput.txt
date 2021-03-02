@@ -1,0 +1,20 @@
+Action Source Key: AS2
+	has Inconsistency issue with 'AS1' "identical preconditions and different actions"
+=================================
+Action Source Key: AS19
+	has Inconsistency issue with 'AS16' "identical preconditions and different actions"
+=================================
+Action Source Key: AS9
+	has Inconsistency issue with 'AS8' "identical preconditions and different actions"
+
+=================================
+Action Source Key: AS10
+	has Inconsistency issue with 'AS6' "fully-contained preconditions and different actions"
+=================================
+Action Source Key: AS15
+	has Inconsistency issue with 'AS9' "fully-contained preconditions and different actions"
+	has Inconsistency issue with 'AS8' "fully-contained preconditions and different actions"
+=================================
+Action Source Key: AS20
+	has Inconsistency issue "DeadLock-- found Cycle AS20 AS20"
+=================================
